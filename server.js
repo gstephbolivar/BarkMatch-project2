@@ -9,7 +9,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static("public"));
 
-
+const dogsController = require('./controllers/dogsController.js');
+app.use(dogsController);
 
 // db.sequelize.sync({force: true}).then(() => {
 db.sequelize.sync().then(() => {
