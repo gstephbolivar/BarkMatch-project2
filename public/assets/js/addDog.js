@@ -9,9 +9,9 @@ $(function() {
           age: $("#dog-age").val().trim(),
           breed: $("#dog-breed").val().trim(),
           bio: $("#dog-bio").val().trim(),
-          gender: $("[name=gender]:checked").val().trim(),
-          size: $("[name=size]:checked").val().trim(),
-          energy_level: $("[name=energy]:checked").val().trim(),
+          gender: $("input[name=gender]:checked").data('name'),
+          size: $("input[name=size]:checked").data('name'),
+          energy_level: $("input[name=energy]:checked").data('name'),
         };
         console.log(newDog);
 
