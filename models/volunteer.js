@@ -12,10 +12,14 @@ module.exports = function (sequelize, DataTypes) {
       },
     },
     phone: {
-      type: DataTypes.INTEGER(12),
+      type: DataTypes.STRING(12),
       allowNull: false,
     },
   });
+
+  Volunteer.associate = (models) => {
+    Volunteer.hasMany(models.Dogs);
+  };
 
   return Volunteer;
 };
