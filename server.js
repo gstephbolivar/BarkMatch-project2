@@ -12,6 +12,9 @@ app.use(express.static("public"));
 const dogsController = require('./controllers/dogsController.js');
 app.use(dogsController);
 
+const volunteersController = require('./controllers/volunteersController.js');
+app.use(volunteersController);
+
 // db.sequelize.sync({force: true}).then(() => {
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
