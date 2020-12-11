@@ -1,16 +1,55 @@
 module.exports = function (sequelize, DataTypes) {
-    const Dog = sequelize.define("Dog", {
-      name: DataTypes.STRING,
-      age: DataTypes.INTEGER,
-      breed: DataTypes.STRING,
-      gender: DataTypes.STRING,
-      size: DataTypes.STRING,
-      energy_level: DataTypes.STRING,
-      bio: DataTypes.STRING,
-      available: DataTypes.BOOLEAN,
-      img_path: DataTypes.STRING,
-      user_id: DataTypes.INTEGER
-    });
-  
-    
+  const Dogs = sequelize.define("Dogs", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { isAlpha: true },
+    },
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: { isNumeric: true },
+    },
+    breed: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { isAlpha: true },
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { isAlpha: true },
+    },
+    size: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { isAlpha: true },
+    },
+    energy_level: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { isAlpha: true },
+    },
+    bio: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: { isAlpha: true },
+    },
+    available: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: true,
+    img_path: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      validate: { isNumeric: true },
+    },
+  });
+  Dogs.associate = function (models) {
+    Dogs.belongsTo(models.Volunteer);
   };
+  return Dogs;
+};
