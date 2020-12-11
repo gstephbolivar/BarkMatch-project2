@@ -35,9 +35,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       validate: { isAlpha: true },
     },
-    available: DataTypes.BOOLEAN,
-    allowNull: false,
-    defaultValue: true,
+    available: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
     img_path: {
       type: DataTypes.STRING,
       allowNull: false,
