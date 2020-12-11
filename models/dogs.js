@@ -43,12 +43,7 @@ module.exports = function (sequelize, DataTypes) {
     img_path: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: { isNumeric: true },
-    },
+    }
   });
   Dogs.associate = function (models) {
     Dogs.belongsTo(models.Volunteer);
