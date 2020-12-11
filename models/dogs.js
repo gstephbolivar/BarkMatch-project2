@@ -41,11 +41,10 @@ module.exports = function (sequelize, DataTypes) {
     img_path: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: { isAlpha: true },
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: { isNumeric: true },
     },
   });
