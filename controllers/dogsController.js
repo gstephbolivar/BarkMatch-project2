@@ -17,7 +17,7 @@ router.get("/edit", (req, res) => {
 //API Routes
 //Get all the dogs
 router.get("/api/dogs", (req, res) => {
-    db.Dog.findAll()
+    db.Dogs.findAll()
     .then(dogs => {
         res.json(dogs);
     })
@@ -30,9 +30,10 @@ router.get("/api/dogs", (req, res) => {
 router.post("/api/dogs", (req, res) => {
     const dog = req.body;
 
-    db.Dog.create(dog)
+    db.Dogs.create(dog)
     .then(result => {
-        res.status(200).json({id: result.insertId});
+        console.log(result);
+        res.status(200).json({id: result.dataValues.id});
     })
     .catch(err => {
         res.status(500).json(err);
@@ -41,7 +42,7 @@ router.post("/api/dogs", (req, res) => {
 
 //Update a dog
 router.put("/api/dogs/", (req, res) => {
-    db.Dog.update(req.body, {where:{id: req.body.id}})
+    db.Dogs.update(req.body, {where:{id: req.body.id}})
     .then(result => {
         if(result.affectedRows > 0){
             return res.status(200).json(result);
@@ -58,7 +59,7 @@ router.put("/api/dogs/", (req, res) => {
 
 //Delete a dog
 router.delete("/api/dogs/:id", (req, res) => {
-    db.Dog.destroy({ where: {id: req.params.id} })
+    db.Dogs.destroy({ where: {id: req.params.id} })
     .then(result => {
         if(result.affectedRows > 0){
             return res.status(200).json(result);
