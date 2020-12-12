@@ -6,7 +6,7 @@ const db = require("../models");
 
 // Shelter dashboard home page
 router.get("/dashboard", (req, res) => {
-  db.Dog.findAll()
+  db.Dogs.findAll()
     .then((dogs) => {
       res.render("dashboard", { dogs: dogs });
     })
