@@ -23,13 +23,13 @@
             <div class="columns is-mobile">
                 <div class="column">
                     <div class="card">
+                        {{#each dogs}}
                         <div class="card-image">
                             <figure class="image is-1by1">
                                 <img src={{img_path}} alt="Picture of {{name}}"/>
                             </figure>
                         </div>
                         <div class="card-content is-centered">
-                            {{#each dogs}}
                             <div class="media">
                                 <div class="media-content">
                                     <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
@@ -45,11 +45,11 @@
                                 <br />
                             </div>
                             <p class="subtitle is-6 has-text-dark">{{available}}</p>
-                            {{/each}}
                         </div>
                         <footer class="card-footer">
                              <a href="#" class="card-footer-item">Walk {{name}}!</a>
                         </footer>
+                         {{/each}}
                     </div>
                 </div>
                 <div class="column"></div>
