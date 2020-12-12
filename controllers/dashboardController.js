@@ -25,3 +25,5 @@ router.get("/dashboard/add", (req, res) => {
 router.get("/dashboard/edit", (req, res) => {
   res.render("editDog");
 });
+
+module.exports = router;
