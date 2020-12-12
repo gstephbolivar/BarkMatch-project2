@@ -28,6 +28,9 @@ app.use(dogsController);
 const volunteersController = require('./controllers/volunteersController.js');
 app.use(volunteersController);
 
+const dashboardController = require('./controllers/dashboardController.js');
+app.use(dashboardController);
+
 // db.sequelize.sync({force: true}).then(() => {
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
