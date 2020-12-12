@@ -14,6 +14,19 @@ router.get("/edit", (req, res) => {
     res.render("editDog");
 })
 
+// Page to see all dogs
+router.get("/dogs", function(req, res) {
+    db.Dogs.findAll({}).then((allDogs) => {
+        let hbsObject = {
+            dogs: allDogs,
+        };
+        console.log(hbsObject);
+        res.render("doglist", hbsObject);
+    })
+      
+    });
+ 
+
 //API Routes
 //Get all the dogs
 router.get("/api/dogs", (req, res) => {
@@ -30,7 +43,16 @@ router.get("/api/dogs", (req, res) => {
 router.post("/api/dogs", (req, res) => {
     const dog = req.body;
 
-    db.Dogs.create(dog)
+    db.Dogs.create(dog,{
+        name: dog.name,
+        age: dog.age,
+        breed: dog.breed,
+        gender: dog.gender,
+        size: dog.size,
+        energy_level: dog.energy_level,
+        bio: dog.bio,
+        available: dog.available
+    })
     .then(result => {
         console.log(result);
         res.status(200).json({id: result.dataValues.id});
