@@ -65,12 +65,12 @@ router.post("/api/dogs", (req, res) => {
                 db.Dogs.update({img_path: imagePath}, { where: {id: result.dataValues.id}})
                 .then(result => {
 
-                    if(result.affectedRows > 0){
-                        res.status(200).json({id: result.dataValues.id, image: imagePath});
+                    if(result[0] === 1){
+                        res.status(200).end();
                     }
 
-                    if(result.affectedRows === 0){
-                        res.status(404);
+                    if(result[0] === 0){
+                        res.status(404).end();
                     }
                 })
                 .catch(err => {
@@ -84,12 +84,12 @@ router.post("/api/dogs", (req, res) => {
             db.Dogs.update({img_path: "/assets/images/img/dogph.png"}, { where: {id: result.dataValues.id}})
             .then(result => {
 
-                if(result.affectedRows > 0){
-                    res.status(200).json({id: result.dataValues.id});
+                if(result[0] ===  1){
+                    res.status(200).end();
                 }
 
-                if(result.affectedRows === 0){
-                    res.status(404);
+                if(result[0] === 0){
+                    res.status(404).end();
                 }
             })
             .catch(err => {
