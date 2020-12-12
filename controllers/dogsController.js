@@ -20,7 +20,7 @@ router.get("/dogs", function(req, res) {
         let hbsObject = {
             dogs: allDogs,
         };
-        console.log(hbsObject);
+
         res.render("doglist", hbsObject);
     })
       
@@ -41,23 +41,67 @@ router.get("/api/dogs", (req, res) => {
 
 //Create a dog
 router.post("/api/dogs", (req, res) => {
+    
     const dog = req.body;
 
-    db.Dogs.create(dog,{
-        name: dog.name,
-        age: dog.age,
-        breed: dog.breed,
-        gender: dog.gender,
-        size: dog.size,
-        energy_level: dog.energy_level,
-        bio: dog.bio,
-        available: dog.available
-    })
+    //Create dog in the database
+    db.Dogs.create(dog)
     .then(result => {
-        console.log(result);
-        res.status(200).json({id: result.dataValues.id});
+
+        //Check to see if a picture was included in the request and then add it to 
+        //the dogs image folder and update the image path in the database
+        if(req.files && req.files.img_path){
+
+            const picture = req.files.img_path;
+
+            picture.mv(`public/assets/images/dogs/${dog.name}-${result.dataValues.id}.jpg`, function(err) {
+                if (err){
+                  console.log(err);
+                  return res.status(500).json(err);
+                }
+            
+                const imagePath = `assets/images/dogs/${dog.name}-${result.dataValues.id}.jpg`
+
+                db.Dogs.update({img_path: imagePath}, { where: {id: result.dataValues.id}})
+                .then(result => {
+
+                    if(result.affectedRows > 0){
+                        res.status(200).json({id: result.dataValues.id, image: imagePath});
+                    }
+
+                    if(result.affectedRows === 0){
+                        res.status(404);
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).json(err);
+                })                
+            });     
+        }
+        else{
+
+            db.Dogs.update({img_path: "/assets/images/img/dogph.png"}, { where: {id: result.dataValues.id}})
+            .then(result => {
+
+                if(result.affectedRows > 0){
+                    res.status(200).json({id: result.dataValues.id});
+                }
+
+                if(result.affectedRows === 0){
+                    res.status(404);
+                }
+            })
+            .catch(err => {
+
+                console.log(err);
+                res.status(500).json(err);
+            })
+        }    
     })
     .catch(err => {
+
+        console.log(err);
         res.status(500).json(err);
     })
 });
