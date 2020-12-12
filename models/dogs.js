@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
     bio: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: { isAlpha: true },
+      // validate: { isAlpha: true },
     },
     available: {
       type: DataTypes.BOOLEAN,
@@ -42,7 +42,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     img_path: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: "",
+      // allowNull: false,
     }
   });
   Dogs.associate = function (models) {
