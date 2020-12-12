@@ -1,38 +1,39 @@
+<img id="profile-pic" src="assets/images/img/dogph.png" alt="dog picture" style="width:200px;height:200px">
 <form class="create-form">
-
+  <label class="pic-label" for="img_path">Upload Doggie Pic</label>
+  <input id="img_path" type="file" name="img_path">
   <div class="form-group">
     <label for="dog">Dog Name:</label>
     <input type="text" id="dog-name" name="name">
   </div>
   <div class="form-group">
     <label for="dog">Age:</label>
-    <input type="text" id="dog-age" name="name">
+    <input type="text" id="dog-age" name="age">
   </div>
   <div class="form-group">
     <label for="dog">Breed:</label>
-    <input type="text" id="dog-breed" name="name">
+    <input type="text" id="dog-breed" name="breed">
   </div>
   <div class="form-group">
     <label for="dog">Bio:</label>
-    <input type="text" id="dog-bio" name="name">
+    <input type="text" id="dog-bio" name="bio">
   </div>
-  
   <div class="form-group">
     <label for="gender">Gender</label><br>
-    <input type="radio" name="gender" data-name="Male" checked>Male<br>
-    <input type="radio" name="gender" data-name="Female" > Female
+    <input type="radio" name="gender" value="Male" data-name="Male" checked>Male<br>
+    <input type="radio" name="gender" value="Female" data-name="Female">Female
   </div>
   <div class="form-group">
     <label for="size">Size</label><br>
-    <input type="radio" name="size" data-name="Small" checked>Small<br>
-    <input type="radio" name="size" data-name="Medium" checked>Medium<br>
-    <input type="radio" name="size" data-name="Large"> Large
+    <input type="radio" name="size" value="Small" data-name="Small" checked>Small<br>
+    <input type="radio" name="size" value="Medium" data-name="Medium">Medium<br>
+    <input type="radio" name="size" value="Large" data-name="Large"> Large
   </div>
   <div class="form-group">
     <label for="energy">Energy Level</label><br>
-    <input type="radio" name="energy" data-name="Low" checked>Low<br>
-    <input type="radio" name="energy" data-name="Moderate" checked>Moderate<br>
-    <input type="radio" name="energy" data-name="High" > High
+    <input type="radio" name="energy_level" value="Low" data-name="Low" checked>Low<br>
+    <input type="radio" name="energy_level" value="Moderate" data-name="Moderate">Moderate<br>
+    <input type="radio" name="energy_level" value="High" data-name="High">High
   </div>
 
   <button type="submit">Add Dog</button>
