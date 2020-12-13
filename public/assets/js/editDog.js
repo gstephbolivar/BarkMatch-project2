@@ -1,12 +1,14 @@
 $(function() {
-// helper function to set which inputs are checked
-    Handlebars.registerHelper ("setChecked", function (value, currentValue) {
-        if ( value === currentValue ) {
-           return "checked";
-        } else {
-           return "";
-        }
-     });
+$(".edit-dog").on("click", function(){
+    // event.preventDefault();
+    let id = $(this).attr("id");
+    getDogInfo(id);
+});
+
+const getDogInfo = (id) => {
+    console.log(id);
+
+}
     // Logic to make the POST to the db
     $(".edit-form").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.

@@ -3,42 +3,57 @@
 <img id="profile-pic" src="assets/images/img/dogph.png" alt="dog picture" style="width:200px;height:200px">
 <form class="edit-form" data-id="{{id}}">
   <label class="pic-label" for="img_path">Upload Doggie Pic</label>
+    <br>
+
   <input id="img_path" type="file" name="img_path" value="{{img_path}}">
+  <br>
   <div class="form-group">
     <label for="dog">Dog Name:</label>
     <input type="text" id="dog-name" name="name" value="{{name}}">
   </div>
+    <br>
+
   <div class="form-group">
     <label for="dog">Age:</label>
     <input type="text" id="dog-age" name="age" value="{{age}}">
   </div>
+    <br>
+
   <div class="form-group">
     <label for="dog">Breed:</label>
     <input type="text" id="dog-breed" name="breed" value="{{breed}}">
   </div>
+    <br>
+
   <div class="form-group">
     <label for="dog">Bio:</label>
     <input type="text" id="dog-bio" name="bio" value="{{bio}}">
   </div>
+    <br>
+
   <div class="form-group">
     <label for="gender">Gender</label><br>
-    <input type="radio" name="gender" value="Male" data-name="Male" {{{setChecked Male gender}}}>Male<br>
-    <input type="radio" name="gender" value="Female" data-name="Female" {{{setChecked Female gender}}}>Female
+    <input type="radio" name="gender" value="Male" data-name="Male" >Male<br>
+    <input type="radio" name="gender" value="Female" data-name="Female" >Female
   </div>
+    <br>
+
   <div class="form-group">
     <label for="size">Size</label><br>
-    <input type="radio" name="size" value="Small" data-name="Small"{{{setChecked Small size}}}>Small<br>
-    <input type="radio" name="size" value="Medium" data-name="Medium"{{{setChecked Medium size}}}>Medium<br>
-    <input type="radio" name="size" value="Large" data-name="Large"{{{setChecked Large size}}}> Large
+    <input type="radio" name="size" value="Small" data-name="Small">Small<br>
+    <input type="radio" name="size" value="Medium" data-name="Medium">Medium<br>
+    <input type="radio" name="size" value="Large" data-name="Large"> Large
   </div>
+    <br>
+
   <div class="form-group">
     <label for="energy">Energy Level</label><br>
-    <input type="radio" name="energy_level" value="Low" data-name="Low"{{{setChecked Low energy_level}}}>Low<br>
-    <input type="radio" name="energy_level" value="Moderate" data-name="Moderate"{{{setChecked Moderate energy_level}}}>Moderate<br>
-    <input type="radio" name="energy_level" value="High" data-name="High"{{{setChecked High energy_level}}}>High
+    <input type="radio" name="energy_level" value="Low" data-name="Low">Low<br>
+    <input type="radio" name="energy_level" value="Moderate" data-name="Moderate">Moderate<br>
+    <input type="radio" name="energy_level" value="High" data-name="High">High
   </div>
 
   <button type="submit">Save Changes</button>
 </form>
 
-<script src="assets/js/editDog.js"></script>
+<script src="/assets/js/editDog.js"></script>
