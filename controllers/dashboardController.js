@@ -22,8 +22,15 @@ router.get("/dashboard/add", (req, res) => {
 });
 
 //Page to edit a dog
-router.get("/dashboard/edit", (req, res) => {
-  res.render("editDog");
+router.get("/dashboard/edit/:id", (req, res) => {
+  db.Dogs.findOne({where: {id: req.params.id}})
+  .then(dog => {
+    res.render("editDog", {dog: dog});
+  })
+  .catch(err => {
+    console.log(err);
+  })
+  
 });
 
 module.exports = router;
