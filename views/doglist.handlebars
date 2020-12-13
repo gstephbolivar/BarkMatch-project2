@@ -4,27 +4,60 @@
         <nav class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item"> <img src="../public/assets/images/logo.svg" alt="Logo" style="width: 152px"> </a>
+                    <a class="navbar-item"> <img src="/assets/images/logo.svg" alt="Logo" style="width: 152px"> </a>
                 </div>
             </div>
         </nav>
     </div>
 
-<ul>
-{{#each dogs}}
-<br>
-<input type="hidden" value={{id}} name="id">
-<li>Name: {{name}}</li>
-<li>Age: {{age}}</li>
-<li>Breed: {{breed}}</li>
-<li>Gender: {{gender}}</li>
-<li>Size: {{size}}</li>
-<li>Energy Level: {{energy_level}}</li>
-<li>Bio: {{bio}}</li>
-<li>Available: {{available}}</li>
-<img src={{img_path}} alt="Picture of {{name}}" style="width:100px;height:100px">
-<br>
-{{/each}}
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <!-- Shelter Logo -->
+            <img src="/assets/images/logo.svg" alt="Logo" style="margin-top: -150%;">
+            <!-- ADD DOG -->
+            <br />
+            <br />
+            <br />
+            <!-- DOGALOG -->
+            <div class="columns is-mobile">
+                <div class="column">
+                    {{#each dogs}}
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-1by1">
+                                <img src={{img_path}} alt="Picture of {{name}}"/>
+                            </figure>
+                        </div>
+                        <div class="card-content is-centered">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
+                                    <p class="subtitle is-6 has-text-dark">Age: {{age}}</p>
+                                    <p class="subtitle is-6 has-text-dark">Breed: {{breed}}</p>
+                                    <p class="subtitle is-6 has-text-dark">Gender: {{gender}}</p>
+                                    <p class="subtitle is-6 has-text-dark">Size: {{size}}</p>
+                                    <p class="subtitle is-6 has-text-dark">Energy Level: {{energy_level}}</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                {{bio}}
+                                <br />
+                            </div>
+                            <p class="subtitle is-6 has-text-dark">{{available}}</p>
+                        </div>
+                        <footer class="card-footer">
+                             <a href="#" class="card-footer-item">Walk {{name}}!</a>
+                        </footer>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="column"></div>
+                <div class="column"></div>
+                <div class="column"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero footer: will stick at the bottom -->
     <div class="hero-foot">
@@ -35,5 +68,3 @@
         </nav>
     </div>
 </section>
-
-                 
