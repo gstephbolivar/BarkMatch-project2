@@ -39,6 +39,19 @@ router.get("/api/dogs", (req, res) => {
     })
 });
 
+//Get one dog dog
+router.get("/api/dogs/:id", (req, res) => {
+    db.Dogs.findAll({
+        where: {id: req.params.id}
+    })
+    .then(dog => {
+        res.json(dog);
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
+});
+
 //Create a dog
 router.post("/api/dogs", (req, res) => {
     
@@ -47,6 +60,7 @@ router.post("/api/dogs", (req, res) => {
     //Create dog in the database
     db.Dogs.create(dog)
     .then(result => {
+      
 
         //Check to see if a picture was included in the request and then add it to 
         //the dogs image folder and update the image path in the database

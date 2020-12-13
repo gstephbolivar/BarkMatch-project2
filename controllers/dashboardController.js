@@ -25,7 +25,7 @@ router.get("/dashboard/add", (req, res) => {
 router.get("/dashboard/edit/:id", (req, res) => {
   db.Dogs.findOne({where: {id: req.params.id}})
   .then(dog => {
-    res.render("editDog", {dog: dog});
+    res.render("editDog", dog._previousDataValues);
   })
   .catch(err => {
     console.log(err);

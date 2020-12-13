@@ -1,14 +1,38 @@
+
 $(function() {
-$(".edit-dog").on("click", function(){
-    // event.preventDefault();
-    let id = $(this).attr("id");
-    getDogInfo(id);
-});
+    // The following variables and ajax GET call is to properly check the boxes in the edit form with the current data from the dog chosen.
+    let dogID = $(".edit-form").data("id");
+    let query = `/api/dogs/${dogID}`
 
-const getDogInfo = (id) => {
-    console.log(id);
+    $.ajax({
+        type: "GET",
+        url: query,
+    }).then(function(dog) {
+        console.log(dog[0].gender);
+        if(dog[0].gender === "Male") {
+            $("#dog-male").prop("checked", true);
+        } else {
+            $("#dog-female").prop("checked", true);
+        };
 
-}
+        if(dog[0].size === "Small") {
+            $("#dog-small").prop("checked", true);
+        } else if(dog[0].size === "Medium"){
+            $("#dog-medium").prop("checked", true);
+        } else {
+            $("#dog-large").prop("checked", true);
+        };
+
+        if(dog[0].energy_level === "Low") {
+            $("#dog-low").prop("checked", true);
+        } else if(dog[0].energy_level === "Moderate"){
+            $("#dog-moderate").prop("checked", true);
+        } else {
+            $("#dog-high").prop("checked", true);
+        };
+
+        
+    });
     // Logic to make the POST to the db
     $(".edit-form").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
