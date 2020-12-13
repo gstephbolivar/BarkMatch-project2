@@ -21,35 +21,53 @@
             <br />
             <!-- DOGALOG -->
             <div class="columns is-mobile is-centered">
-                    {{#each dogs}}
-                    <div class="card" style="width: 25%; margin: 10px;">
-                        <div class="card-image">
-                            <figure class="image is-1by1">
-                                <img src={{img_path}} alt="Picture of {{name}}"/>
-                            </figure>
-                        </div>
-                        <div class="card-content is-centered">
-                            <div class="media">
-                                <div class="media-content">
-                                    <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Age: {{age}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Breed: {{breed}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Gender: {{gender}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Size: {{size}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Energy Level: {{energy_level}}</p>
-                                </div>
-                            </div>
-                            <div class="content">
-                                {{bio}}
-                                <br />
-                            </div>
-                            <p class="subtitle is-6 has-text-dark">{{available}}</p>
-                        </div>
-                        <footer class="card-footer">
-                             <a href="#" class="card-footer-item">Walk {{name}}!</a>
-                        </footer>
+                {{#each dogs}}
+                <div class="card" style="width: 25%; margin: 10px;">
+                    <div class="card-image">
+                        <figure class="image is-1by1">
+                            <img src={{img_path}} alt="Picture of {{name}}" />
+                        </figure>
                     </div>
-                    {{/each}}
+                    <div class="card-content is-centered">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
+                                <p class="subtitle is-6 has-text-dark">Age: {{age}}</p>
+                                <p class="subtitle is-6 has-text-dark">Breed: {{breed}}</p>
+                                <p class="subtitle is-6 has-text-dark">Gender: {{gender}}</p>
+                                <p class="subtitle is-6 has-text-dark">Size: {{size}}</p>
+                                <p class="subtitle is-6 has-text-dark">Energy Level: {{energy_level}}</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            {{bio}}
+                            <br />
+                        </div>
+                        <p class="subtitle is-6 has-text-dark">{{available}}</p>
+                    </div>
+                    <footer class="card-footer">
+                        <button class="button card-footer-item is-success is-light" id="dogBtn">Walk {{name}}!</button>
+                    </footer>
+                </div>
+                {{/each}}
+            </div>
+
+            <!-- SIGN UP MODAL -->
+            <div class="modal" id="signUpModal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Would you like to walk {{name}}?</p>
+                        <button class="delete" id="closeBtn" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body has-text-dark">
+                        Specific details about how to walk the dog, contact shelter, etc.
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button class="button is-success" id="signUpBtn">Sign Up</button>
+                        <button class="button" data-bulma-modal="close" id="signUpCancel">Cancel</button>
+                    </footer>
+                </div>
             </div>
         </div>
     </div>
