@@ -60,7 +60,7 @@ router.post("/api/dogs", (req, res) => {
                   return res.status(500).json(err);
                 }
             
-                const imagePath = `assets/images/dogs/${dog.name}-${result.dataValues.id}.jpg`
+                const imagePath = `/assets/images/dogs/${dog.name}-${result.dataValues.id}.jpg`
 
                 db.Dogs.update({img_path: imagePath}, { where: {id: result.dataValues.id}})
                 .then(result => {
@@ -127,12 +127,12 @@ router.put("/api/dogs/", (req, res) => {
 router.delete("/api/dogs/:id", (req, res) => {
     db.Dogs.destroy({ where: {id: req.params.id} })
     .then(result => {
-        if(result.affectedRows > 0){
-            return res.status(200).json(result);
+        if(result > 0){
+            return res.status(200).end();
         }
 
-        if(result.affectedRows === 0){
-            return res.status(404).json({message: "Dog not found in the database."});
+        if(result === 0){
+            return res.status(404).end();
         }
     })
 })

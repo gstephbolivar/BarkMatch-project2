@@ -16,8 +16,8 @@
             <!-- Shelter Logo -->
             <img src="/assets/images/ahs.svg" alt="Logo" style="margin-top: -150%;">
             <!-- ADD DOG -->
-            <div id="add">
-                <button class="button is-white">Add a Dog</button>
+            <div>
+                <button id="addBtn" class="button is-white">Add a Dog</button>
             </div>
             <br />
             <br />
@@ -26,13 +26,13 @@
             <div class="columns is-mobile">
                 <div class="column">
                     <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-1by1">
-                                <img src={{img_path}} alt="Picture of {{name}}"/>
-                            </figure>
-                        </div>
                         {{#each dogs}}
                         <div class="card-content is-centered">
+                            <div class="card-image">
+                            <figure class="image is-1by1">
+                                <img src="{{img_path}}" alt="Picture of {{name}}"/>
+                            </figure>
+                        </div>
                             <div class="media">
                                 <div class="media-content">
                                     <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
@@ -47,11 +47,17 @@
                                 {{bio}}
                                 <br />
                             </div>
-                            <p class="subtitle is-6 has-text-dark">{{available}}</p>
+                            <p class="subtitle is-6 has-text-dark">
+                                {{#if available}}
+                                    Available
+                                {{else}}
+                                    Not Available
+                                {{/if}}
+                            </p>
                         </div>
                         <footer class="card-footer">
-                            <a href="#" class="card-footer-item">Edit</a>
-                            <a href="#" class="card-footer-item">Delete</a>
+                            <a href="/dashboard/edit/{{id}}" id="editBtn" class="card-footer-item">Edit</a>
+                            <a id="deleteBtn" class="card-footer-item" data-id="{{id}}">Delete</a>
                         </footer>
                     </div>
                     {{/each}}
@@ -63,6 +69,16 @@
         </div>
     </div>
 
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p>Do you want to delete this dog?</p>
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
     <!-- Hero footer: will stick at the bottom -->
     <div class="hero-foot">
         <nav class="tabs">
@@ -72,3 +88,5 @@
         </nav>
     </div>
 </section>
+
+<script type="text/javascript" src="/assets/js/dashboard.js"></script>
