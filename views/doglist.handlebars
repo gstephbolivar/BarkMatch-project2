@@ -20,10 +20,9 @@
             <br />
             <br />
             <!-- DOGALOG -->
-            <div class="columns is-mobile">
-                <div class="column">
+            <div class="columns is-mobile is-centered">
                     {{#each dogs}}
-                    <div class="card">
+                    <div class="card" style="width: 25%; margin: 10px;">
                         <div class="card-image">
                             <figure class="image is-1by1">
                                 <img src={{img_path}} alt="Picture of {{name}}"/>
@@ -51,10 +50,6 @@
                         </footer>
                     </div>
                     {{/each}}
-                </div>
-                <div class="column"></div>
-                <div class="column"></div>
-                <div class="column"></div>
             </div>
         </div>
     </div>

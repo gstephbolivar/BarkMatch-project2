@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 //Dog list
 router.get("/volunteers/dogalog", (req, res) => {
-    db.Dog.findAll()
+    db.Dogs.findAll()
     .then(dogs => {
         res.render("doglist", {dogs: dogs});
     })
