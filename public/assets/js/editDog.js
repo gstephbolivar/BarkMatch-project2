@@ -34,7 +34,7 @@ $(function() {
         
     });
     // Logic to make the POST to the db
-    $("#submit-edit").on("submit", function(event) {
+    $("#edit-dog").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         let dogID = $(".edit-form").data("id");
@@ -42,8 +42,9 @@ $(function() {
         //Gather form data
         const formData = new FormData(this);
         console.log(formData);
-        let query = `/api/dogs/${dogID}`
-    
+        let query = `/api/dogs/${dogID}`;
+        console.log("here");  
+
         $.ajax({
           type: "PUT",
           url: query,
@@ -51,7 +52,8 @@ $(function() {
           contentType: false,
           processData: false         
         })
-        .then(function(data) {      
+        .then(function(data) {  
+            console.log("made it")
            window.location.href = "/dashboard";
         })
         .catch(err => {
