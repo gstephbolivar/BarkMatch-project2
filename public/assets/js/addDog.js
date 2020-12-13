@@ -6,10 +6,11 @@ $(function() {
 
         //Gather form data
         const formData = new FormData(this);
+        console.log(formData);
     
         $.ajax({
           type: "POST",
-          url: "/api/dogs",
+          url: "/api/dogs/",
           data: formData,
           contentType: false,
           processData: false         

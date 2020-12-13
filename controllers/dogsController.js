@@ -121,7 +121,7 @@ router.post("/api/dogs", (req, res) => {
 });
 
 //Update a dog
-router.put("/api/dogs/", (req, res) => {
+router.put("/api/dogs/:id", (req, res) => {
     db.Dogs.update(req.body, {where:{id: req.body.id}})
     .then(result => {
         if(result.affectedRows > 0){
