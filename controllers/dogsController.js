@@ -39,6 +39,19 @@ router.get("/api/dogs", (req, res) => {
     })
 });
 
+//Get one dog dog
+router.get("/api/dogs/:id", (req, res) => {
+    db.Dogs.findAll({
+        where: {id: req.params.id}
+    })
+    .then(dog => {
+        res.json(dog);
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
+});
+
 //Create a dog
 router.post("/api/dogs", (req, res) => {
     
@@ -47,6 +60,7 @@ router.post("/api/dogs", (req, res) => {
     //Create dog in the database
     db.Dogs.create(dog)
     .then(result => {
+      
 
         //Check to see if a picture was included in the request and then add it to 
         //the dogs image folder and update the image path in the database
@@ -107,16 +121,17 @@ router.post("/api/dogs", (req, res) => {
 });
 
 //Update a dog
-router.put("/api/dogs/", (req, res) => {
-    db.Dogs.update(req.body, {where:{id: req.body.id}})
+router.put("/api/dogs/:id", (req, res) => {
+    db.Dogs.update(req.body, {where:{id: req.params.id}})
     .then(result => {
-        if(result.affectedRows > 0){
-            return res.status(200).json(result);
-        }
+        res.json(result);
+        // if(result.affectedRows > 0){
+        //     return res.status(200).json(result);
+        // }
 
-        if(result.affectedRows === 0){
-            return res.status(404).json({message: "Dog not found in the database."});
-        }
+        // if(result.affectedRows === 0){
+        //     return res.status(404).json({message: "Dog not found in the database."});
+        // }
     })
     .catch(err => {
         res.status(500).json(err)

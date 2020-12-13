@@ -22,6 +22,10 @@ handlebars: allowInsecurePrototypeAccess(handlebars)
 }));
 app.set("view engine", "handlebars");
 
+
+
+
+
 const dogsController = require('./controllers/dogsController.js');
 app.use(dogsController);
 

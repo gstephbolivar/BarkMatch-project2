@@ -3,7 +3,7 @@ module.exports = function (sequelize, DataTypes) {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: { isAlpha: true },
+      // validate: { isAlpha: true },
     },
     age: {
       type: DataTypes.INTEGER,
@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
     breed: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: { isAlpha: true },
+      // validate: { isAlpha: true },
     },
     gender: {
       type: DataTypes.STRING,
