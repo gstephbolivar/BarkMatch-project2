@@ -17,15 +17,14 @@
             <img src="/assets/images/ahs.svg" alt="Logo" style="margin-top: -150%;">
             <!-- ADD DOG -->
             <div>
-                <button id="addBtn" class="button is-white">Add a Dog</button>
+                <button id="addBtn" class="button is-large is-white">Add a Dog</button>
             </div>
             <br />
             <br />
             <br />
             <!-- DOGALOG -->
-            <div class="columns is-mobile">
-                <div class="column">
-                    <div class="card">
+            <div class="columns is-mobile is-centered">
+                    <div class="card" style="width: 25%; margin: 10px;">
                         {{#each dogs}}
                         <div class="card-content is-centered">
                             <div class="card-image">
@@ -61,10 +60,6 @@
                         </footer>
                     </div>
                     {{/each}}
-                </div>
-                <div class="column"></div>
-                <div class="column"></div>
-                <div class="column"></div>
             </div>
         </div>
     </div>
@@ -72,7 +67,7 @@
 <div class="modal">
   <div class="modal-background"></div>
   <div class="modal-content">
-    <p>Do you want to delete this dog?</p>
+    <p>Great news! Did {{name}} get adopted?</p>
     <button id="yesBtn">Yes</button>
     <button id="noBtn">No</button>
   </div>
