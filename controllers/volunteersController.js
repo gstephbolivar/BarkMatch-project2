@@ -17,7 +17,7 @@ router.get("/volunteers/dogalog", (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.status(500).json({error: "Oops! Something went wrong."});
+        res.status(500).render("errorPage");
     })
     
 })
