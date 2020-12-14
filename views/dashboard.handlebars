@@ -4,7 +4,7 @@
         <nav class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item"> <img src="/assets/images/logo.svg" alt="Logo" style="width: 152px"> </a>
+                    <a class="navbar-item"> <img src="/assets/images/logo.svg" alt="Logo" style="width: 200px"> </a>
                 </div>
             </div>
         </nav>
@@ -25,54 +25,69 @@
             <!-- DOGALOG -->
             <div class="columns is-mobile is-centered">
                 {{#each dogs}}
-                    <div class="card" style="width: 25%; margin: 10px;">
-                        <div class="card-content is-centered">
-                            <div class="card-image">
+                <div class="card" style="width: 25%; margin: 10px;">
+                    <div class="card-content is-centered">
+                        <div class="card-image">
                             <figure class="image is-1by1">
-                                <img src="{{img_path}}" alt="Picture of {{name}}"/>
+                                <img src="{{img_path}}" alt="Picture of {{name}}" />
                             </figure>
                         </div>
-                            <div class="media">
-                                <div class="media-content">
-                                    <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Age: {{age}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Breed: {{breed}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Gender: {{gender}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Size: {{size}}</p>
-                                    <p class="subtitle is-6 has-text-dark">Energy Level: {{energy_level}}</p>
-                                </div>
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
+                                <p class="subtitle is-6 has-text-dark">Age: {{age}} years</p>
+                                <p class="subtitle is-6 has-text-dark">Breed: {{breed}}</p>
+                                <p class="subtitle is-6 has-text-dark">Gender: {{gender}}</p>
+                                <p class="subtitle is-6 has-text-dark">Size: {{size}}</p>
+                                <p class="subtitle is-6 has-text-dark">Energy Level: {{energy_level}}</p>
                             </div>
-                            <div class="content">
-                                {{bio}}
-                                <br />
-                            </div>
-                            <p class="subtitle is-6 has-text-dark">
-                                {{#if available}}
-                                    Available
-                                {{else}}
-                                    Not Available
-                                {{/if}}
-                            </p>
                         </div>
-                        <footer class="card-footer">
-                            <a href="/dashboard/edit/{{id}}" id="editBtn" class="card-footer-item">Edit</a>
-                            <a id="deleteBtn" class="card-footer-item" data-id="{{id}}">Delete</a>
-                        </footer>
+                        <div class="content">
+                            {{bio}}
+                            <br />
+                        </div>
+                        <p class="subtitle is-6 has-text-dark">
+                            {{#if available}}
+                            Available
+                            {{else}}
+                            Not Available
+                            {{/if}}
+                        </p>
                     </div>
-                    {{/each}}
+                    <footer class="card-footer">
+                        <a href="/dashboard/edit/{{id}}" id="editBtn" class="card-footer-item">Edit</a>
+                        <a id="deleteBtn" class="card-footer-item" data-id="{{id}}">Delete</a>
+                    </footer>
+                </div>
+                {{/each}}
             </div>
         </div>
     </div>
+    {{!--
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <p>Great news! Did {{name}} get adopted?</p>
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div> --}}
 
-<div class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <p>Great news! Did {{name}} get adopted?</p>
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
-  </div>
-  <button class="modal-close is-large" aria-label="close"></button>
-</div>
+    <!-- DELETE MODAL -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Great news! Did {{name}} get adopted?</p>
+                <button class="delete" id="closeBtn" aria-label="close"></button>
+            </header>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="yesBtn">Yes!</button>
+                <button class="button" id="noBtn" data-bulma-modal="close">Not yet.</button>
+            </footer>
+        </div>
+    </div>
 
     <!-- Hero footer: will stick at the bottom -->
     <div class="hero-foot">
