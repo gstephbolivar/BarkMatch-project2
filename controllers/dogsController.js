@@ -6,12 +6,17 @@ const db = require('../models');
 //HTML Routes
 // Page to see all dogs
 router.get("/dogs", function (req, res) {
-    db.Dogs.findAll({}).then((allDogs) => {
+    db.Dogs.findAll({})
+    .then((allDogs) => {
         let hbsObject = {
             dogs: allDogs,
         };
 
         res.render("doglist", hbsObject);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).render("errorPage");
     })
 
 });
@@ -155,6 +160,10 @@ router.delete("/api/dogs/:id", (req, res) => {
             if (result === 0) {
                 return res.status(404).end();
             }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         })
 })
 
