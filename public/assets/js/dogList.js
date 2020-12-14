@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var mdl = new BulmaModal("#signUpModal");
 
   dogBtn.addEventListener("click", function () {
+    $('#modal-dog-name').text(this.dataset.name);
     mdl.show();
   });
 
