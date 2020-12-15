@@ -46,6 +46,7 @@
                     <footer class="card-footer">
                         <a href="/dashboard/edit/{{id}}" id="editBtn" class="card-footer-item">Edit</a>
                         <a id="deleteBtn" class="card-footer-item" data-id="{{id}}">Delete</a>
+                    {{#if available}}{{else}}<a id="availableBtn" class="card-footer-item availableBtn" name="{{available}}" data-id="{{id}}">Available</a>{{/if}}
                     </footer>
                 </div>
             </div>

@@ -19,6 +19,21 @@
     })
 // //  })
 
+$(".availableBtn").on('click', function() {
+  if (this.name === "false"){
+    let dogID = $(this).data('id');
+    let query = `/api/dogs/${dogID}`;
+    
+    $.ajax({
+      type: "PUT",
+      url: query,
+      data: {available: true}
+    }).then((data) => {
+      window.location.reload();
+    })
+  }
+})
+
 document.addEventListener("DOMContentLoaded", function () {
   /* SIGN UP MODAL JAVASCRIPT */
   console.log("JS is linked");
