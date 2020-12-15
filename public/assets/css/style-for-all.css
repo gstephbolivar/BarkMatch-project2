@@ -6,7 +6,17 @@
 #add-dog-headline {
     display: block;
     margin: auto;
-    width: 400px;
-    margin-bottom: -35px;
+    width: 600px;
+    margin-bottom: -45px;
+    margin-top: -45px;
     
+}
+
+@media only screen and (max-width: 768px) {
+
+    #add-dog-headline {
+        width: 400px;
+        margin-bottom: -35px;
+        
+    }
 }
