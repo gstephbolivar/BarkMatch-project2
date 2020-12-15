@@ -17,19 +17,19 @@ $(function() {
         };
 
         if(dog[0].size === "Small") {
-            $("#dog-small").prop("checked", true);
+            $("#dog-small").prop("selected", true);
         } else if(dog[0].size === "Medium"){
-            $("#dog-medium").prop("checked", true);
+            $("#dog-medium").prop("selected", true);
         } else {
-            $("#dog-large").prop("checked", true);
+            $("#dog-large").prop("selected", true);
         };
 
         if(dog[0].energy_level === "Low") {
-            $("#dog-low").prop("checked", true);
+            $("#dog-low").prop("selected", true);
         } else if(dog[0].energy_level === "Moderate"){
-            $("#dog-moderate").prop("checked", true);
+            $("#dog-moderate").prop("selected", true);
         } else {
-            $("#dog-high").prop("checked", true);
+            $("#dog-high").prop("selected", true);
         };
 
         
@@ -74,6 +74,17 @@ $(function() {
       }
       
       $("#img_path").change(function() {
+        let path = $(this).val();
+        path = path.replace("C:\\fakepath\\", "");
+        $('.file-name').text(path);
         readURL(this);
+      });
+
+      // Cancel back to dashboard btn //
+
+      var cancelBtn = document.querySelector("#cancelBtn");
+
+      cancelBtn.addEventListener("click", function () {
+        window.location.href = "/dashboard";
       });
 })

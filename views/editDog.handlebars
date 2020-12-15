@@ -1,59 +1,124 @@
-<h1>Edit {{name}}</h1>
+{{!-- BULMA ADD DOG --}}
+<section class="section">
+ <form id="edit-dog" class="edit-form" data-id="{{id}}">
+    <div class="container has-text-centered">
+      <h1 class="title">Edit {{name}}</h1>
+      <div class="column is-half is-offset-one-quarter">
+        <!-- ADD DOG FORM -->
+        <label class="label">Upload Photo</label>
+        <div class="file has-name is-centered">
+          <label class="file-label">
+            <img id="profile-pic" src="{{img_path}}" alt="dog picture"
+              style="width:40px;height:40px; margin-right:10px;">
+            <input class="file-input" type="file" name="img_path" id="{{img_path}}" />
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label" for="img_path"> Choose a file… </span>
+            </span>
+            <span class="file-name">
+              No file chosen
+            </span>
+          </label>
+        </div>
+        <br />
+        <div class="field" id="name">
+          <label class="label" for="dog">Name</label>
+          <div class="control">
+            <input class="input" type="text" id="dog-name" name="name" value="{{name}}" />
+          </div>
+        </div>
+        <div class="dropdown" style="margin-bottom: 20px;">
 
-<img id="profile-pic" src="{{img_path}}" alt="dog picture" style="width:200px;height:200px">
-<form id="edit-dog" class="edit-form" data-id="{{id}}">
-  <label class="pic-label" for="img_path">Upload Doggie Pic</label>
-    <br>
+          <div class="field" id="age" style="margin-left: 20px; margin-right: 20px;">
+            <label class="label" for="dog">Age</label>
+            <div class="control">
+              <input class="input" type="text" id="dog-age" name="age" value="{{age}}" />
+            </div>
+          </div>
 
-  <input id="img_path" type="file" name="img_path" value="{{img_path}}">
-  <br>
-  <div class="form-group">
-    <label for="dog">Dog Name:</label>
-    <input type="text" id="dog-name" name="name" value="{{name}}">
-  </div>
-    <br>
+          <div class="field" id="breed" style="margin-left: 20px; margin-right: 20px;">
+            <label class="label" for="dog">Breed</label>
+            <div class="control">
+              <input class="input" type="text" id="dog-breed" name="breed" value="{{breed}}" />
+            </div>
+          </div>
 
-  <div class="form-group">
-    <label for="dog">Age:</label>
-    <input type="text" id="dog-age" name="age" value="{{age}}">
-  </div>
-    <br>
+        </div>
 
-  <div class="form-group">
-    <label for="dog">Breed:</label>
-    <input type="text" id="dog-breed" name="breed" value="{{breed}}">
-  </div>
-    <br>
+        <div class="field">
+          <label class="label" for="dog">Brief Bio</label>
+          <div class="control">
+            <textarea class="textarea" type="text" id="dog-bio" name="bio"
+              value="{{bio}}"></textarea>
+          </div>
+        </div>
 
-  <div class="form-group">
-    <label for="dog">Bio:</label>
-    <input type="text" id="dog-bio" name="bio" value="{{bio}}">
-  </div>
-    <br>
+        <div class="dropdown" style="margin-bottom: 20px;">
 
-  <div class="form-group">
-    <label for="gender">Gender</label><br>
-    <label><input type="radio" id="dog-male" name="gender" value="Male" data-name="Male">Male</label><br>
-    <label><input type="radio" id="dog-female" name="gender" value="Female" data-name="Female">Female</label>
-  </div>
-    <br>
+          <div class="field" id="gender" style="margin-left: 30px; margin-right: 30px;">
+            <label class="label" for="gender">Gender</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="gender" value="Male" data-name="Male" checked />
+                Male
+              </label>
+              <label class="radio">
+                <input type="radio" name="gender" value="Female" data-name="Female" />
+                Female
+              </label>
+            </div>
+          </div>
 
-  <div class="form-group">
-    <label for="size">Size</label><br>
-    <input type="radio" id="dog-small" name="size" value="Small" data-name="Small">Small<br>
-    <input type="radio" id="dog-medium" name="size" value="Medium" data-name="Medium">Medium<br>
-    <input type="radio" id="dog-large" name="size" value="Large" data-name="Large"> Large
-  </div>
-    <br>
+          <div class="field" id="size" style="margin-left: 30px; margin-right: 30px;">
+            <label class="label" for="size">Size</label>
+            <div class="control">
+              <div class="select">
+                <select name="size">
+                  <option value="Small" data-name="Small" selected>Small</option>
+                  <option value="Medium" data-name="Medium">Medium</option>
+                  <option value="Large" data-name="Large">Large</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-  <div class="form-group">
-    <label for="energy">Energy Level</label><br>
-    <input type="radio" id="dog-low" name="energy_level" value="Low" data-name="Low">Low<br>
-    <input type="radio" id="dog-moderate" name="energy_level" value="Moderate" data-name="Moderate" >Moderate<br>
-    <input type="radio" id="dog-high" name="energy_level" value="High" data-name="High">High
-  </div>
+          <div class="field" id="energy" style="margin-left: 30px; margin-right: 30px;">
+            <label class="label">Energy Level</label>
+            <div class="control">
+              <div class="select">
+                <select name="energy_level">
+                  <option value="Low" data-name="Low" selected>Low</option>
+                  <option value="Moderate" data-name="Moderate">Moderate</option>
+                  <option name="energy_level" value="High" data-name="High">High</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <button type="submit">Save Changes</button>
-</form>
+      </div>
+
+
+
+    </div>
+
+    <div class="field is-grouped is-grouped-centered" style="margin-bottom: 50px;">
+      <p class="control">
+        <button type="submit" class="button is-info is-medium">
+          Submit
+        </button>
+      </p>
+      <p class="control">
+        <button class="button is-light is-medium" id="cancelBtn">
+          Cancel
+        </button>
+      </p>
+   
+    </div>
+  </form>
+</section>
+
 
 <script src="/assets/js/editDog.js"></script>
