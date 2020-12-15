@@ -8,6 +8,7 @@
 // //     })
 
     $('#yesBtn').on('click', function(){
+      console.log(this);
         const btn = $(this);
 
         $.ajax({
