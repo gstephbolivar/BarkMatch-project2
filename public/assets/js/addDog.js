@@ -21,6 +21,13 @@ $(function() {
           console.log(err);
         });
 
+        // Cancel back to dashboard btn //
+
+        var cancelBtn = document.querySelector("#cancelBtn");
+
+        cancelBtn.addEventListener("click", function () {
+          window.location.href = "/dashboard";
+        });
 
         // let newDog = {
         //   name: $("#dog-name").val().trim(),
