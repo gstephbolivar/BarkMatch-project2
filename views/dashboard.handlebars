@@ -1,19 +1,20 @@
-    <!-- Hero content: will be in the middle -->
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <!-- Shelter Logo -->
-            <img src="/assets/images/ahs.svg" alt="Logo" style="margin-top: -150%;">
-            <!-- ADD DOG -->
-            <div>
-                <button id="addBtn" class="button is-large is-white">Add a Dog</button>
-            </div>
-            <br />
-            <br />
-            <br />
-            <!-- DOGALOG -->
-            <div class="columns is-mobile is-centered">
-                {{#each dogs}}
-                <div class="card" style="width: 25%; margin: 10px;">
+<!-- Hero content: will be in the middle -->
+<div class="hero-body">
+    <div class="container has-text-centered">
+        <!-- Shelter Logo -->
+        <img src="/assets/images/ahs.svg" alt="Logo" style="margin-top: -150%;">
+        <!-- ADD DOG -->
+        <div>
+            <button id="addBtn" class="button is-large is-white">Add a Dog</button>
+        </div>
+        <br />
+        <br />
+        <br />
+        <!-- DOGALOG -->
+        <div class="columns is-desktop is-centered is-multiline">
+            {{#each dogs}}
+            <div class='column is-4'>
+                <div class="card" style="margin: 10px;">
                     <div class="card-content is-centered">
                         <div class="card-image">
                             <figure class="image is-1by1">
@@ -47,34 +48,35 @@
                         <a id="deleteBtn" class="card-footer-item" data-id="{{id}}">Delete</a>
                     </footer>
                 </div>
-                {{/each}}
             </div>
+            {{/each}}
         </div>
     </div>
-    {{!--
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <p>Great news! Did {{name}} get adopted?</p>
-            <button id="yesBtn">Yes</button>
-            <button id="noBtn">No</button>
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div> --}}
+</div>
+{{!--
+<div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <p>Great news! Did {{name}} get adopted?</p>
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+</div> --}}
 
-    <!-- DELETE MODAL -->
-    <div class="modal" id="deleteModal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Great news! Did {{name}} get adopted?</p>
-                <button class="delete" id="closeBtn" aria-label="close"></button>
-            </header>
-            <footer class="modal-card-foot">
-                <button class="button is-success" id="yesBtn">Yes!</button>
-                <button class="button" id="noBtn" data-bulma-modal="close">Not yet.</button>
-            </footer>
-        </div>
+<!-- DELETE MODAL -->
+<div class="modal" id="deleteModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Great news! Did {{name}} get adopted?</p>
+            <button class="delete" id="closeBtn" aria-label="close"></button>
+        </header>
+        <footer class="modal-card-foot">
+            <button class="button is-success" id="yesBtn">Yes!</button>
+            <button class="button" id="noBtn" data-bulma-modal="close">Not yet.</button>
+        </footer>
     </div>
+</div>
 
 <script type="text/javascript" src="/assets/js/dashboard.js"></script>

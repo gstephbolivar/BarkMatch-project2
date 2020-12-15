@@ -1,16 +1,17 @@
-   <!-- Hero content: will be in the middle -->
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <!-- Shelter Logo -->
-            <img src="/assets/images/logo.svg" alt="Logo" style="margin-top: -150%;">
-            <!-- ADD DOG -->
-            <br />
-            <br />
-            <br />
-            <!-- DOGALOG -->
-            <div class="columns is-mobile is-centered">
-                {{#each dogs}}
-                <div class="card" style="width: 25%; margin: 10px;">
+<!-- Hero content: will be in the middle -->
+<div class="hero-body">
+    <div class="container has-text-centered">
+        <!-- Shelter Logo -->
+        <img src="/assets/images/logo.svg" alt="Logo" style="margin-top: -150%;">
+        <!-- ADD DOG -->
+        <br />
+        <br />
+        <br />
+        <!-- DOGALOG -->
+        <div class="columns is-desktop is-centered is-multiline">
+            {{#each dogs}}
+            <div class='column is-4'>
+                <div class="card" style="margin: 10px;">
                     <div class="card-image">
                         <figure class="image is-1by1">
                             <img src={{img_path}} alt="Picture of {{name}}" />
@@ -34,30 +35,32 @@
                         <p class="subtitle is-6 has-text-dark">{{available}}</p>
                     </div>
                     <footer class="card-footer">
-                        <button class="button card-footer-item is-success is-light" id="dogBtn" data-name="{{name}}">Walk {{name}}!</button>
+                        <button class="button card-footer-item is-success is-light" id="dogBtn"
+                            data-name="{{name}}">Walk {{name}}!</button>
                     </footer>
                 </div>
-                {{/each}}
             </div>
+            {{/each}}
+        </div>
 
-            <!-- SIGN UP MODAL -->
-            <div class="modal" id="signUpModal">
-                <div class="modal-background"></div>
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Would you like to walk <span id="modal-dog-name"></span>?</p>
-                        <button class="delete" id="closeBtn" aria-label="close"></button>
-                    </header>
-                    <section class="modal-card-body has-text-dark">
-                        Specific details about how to walk the dog, contact shelter, etc.
-                    </section>
-                    <footer class="modal-card-foot">
-                        <button class="button is-success" id="signUpBtn">Sign Up</button>
-                        <button class="button" data-bulma-modal="close" id="signUpCancel">Cancel</button>
-                    </footer>
-                </div>
+        <!-- SIGN UP MODAL -->
+        <div class="modal" id="signUpModal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Would you like to walk <span id="modal-dog-name"></span>?</p>
+                    <button class="delete" id="closeBtn" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body has-text-dark">
+                    Specific details about how to walk the dog, contact shelter, etc.
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-success" id="signUpBtn">Sign Up</button>
+                    <button class="button" data-bulma-modal="close" id="signUpCancel">Cancel</button>
+                </footer>
             </div>
         </div>
     </div>
+</div>
 
 <script type="text/javascript" src="/assets/js/dogList.js"></script>
