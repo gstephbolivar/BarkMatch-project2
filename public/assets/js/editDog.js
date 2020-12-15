@@ -17,19 +17,19 @@ $(function() {
         };
 
         if(dog[0].size === "Small") {
-            $("#dog-small").prop("checked", true);
+            $("#dog-small").prop("selected", true);
         } else if(dog[0].size === "Medium"){
-            $("#dog-medium").prop("checked", true);
+            $("#dog-medium").prop("selected", true);
         } else {
-            $("#dog-large").prop("checked", true);
+            $("#dog-large").prop("selected", true);
         };
 
         if(dog[0].energy_level === "Low") {
-            $("#dog-low").prop("checked", true);
+            $("#dog-low").prop("selected", true);
         } else if(dog[0].energy_level === "Moderate"){
-            $("#dog-moderate").prop("checked", true);
+            $("#dog-moderate").prop("selected", true);
         } else {
-            $("#dog-high").prop("checked", true);
+            $("#dog-high").prop("selected", true);
         };
 
         
@@ -61,7 +61,6 @@ $(function() {
         });
       });
 
-      
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
