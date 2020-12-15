@@ -1,7 +1,5 @@
-$(function(){
-    $('#searchDogs').on('click', ()=>{
+$(function() {
+    $(".navbar-item").on("click", function(){
         window.location.href = "/volunteers/dogalog";
     });
-
-    
 })
