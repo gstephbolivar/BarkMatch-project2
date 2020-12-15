@@ -1,4 +1,5 @@
 $(function() {
+
     // Logic to make the POST to the db
     $(".create-form").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
@@ -6,7 +7,7 @@ $(function() {
 
         //Gather form data
         const formData = new FormData(this);
-    
+        console.log(formData.values());
         $.ajax({
           type: "POST",
           url: "/api/dogs",
@@ -20,39 +21,14 @@ $(function() {
         .catch(err => {
           console.log(err);
         });
+      });
 
-        // Cancel back to dashboard btn //
+      // Cancel back to dashboard btn //
 
-        var cancelBtn = document.querySelector("#cancelBtn");
+      var cancelBtn = document.querySelector("#cancelBtn");
 
-        cancelBtn.addEventListener("click", function () {
-          window.location.href = "/dashboard";
-        });
-
-        // let newDog = {
-        //   name: $("#dog-name").val().trim(),
-        //   age: $("#dog-age").val().trim(),
-        //   breed: $("#dog-breed").val().trim(),
-        //   bio: $("#dog-bio").val().trim(),
-        //   gender: $("input[name=gender]:checked").data('name'),
-        //   size: $("input[name=size]:checked").data('name'),
-        //   energy_level: $("input[name=energy]:checked").data('name'),
-        // };
-        // console.log(newDog);
-
-        // Send the POST request.
-        // $.ajax("/api/dogs", {
-        //   type: "POST",
-        //   data: newDog
-        // }).then(
-        //   function() {
-        //     console.log("created new dog");
-        //     console.log(newDog);
-        //     // Reload the page to get the updated list
-        //     location.reload();
-          
-        // }
-        // );
+      cancelBtn.addEventListener("click", function () {
+        window.location.href = "/dashboard";
       });
 
       function readURL(input) {
@@ -68,6 +44,9 @@ $(function() {
       }
       
       $("#img_path").change(function() {
+        let path = $(this).val();
+        path = path.replace("C:\\fakepath\\", "");
+        $('.file-name').text(path);
         readURL(this);
       });
 })
