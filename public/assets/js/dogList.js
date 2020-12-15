@@ -51,18 +51,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  var dogBtn = document.querySelector("#dogBtn");
   var closeBtn = document.querySelector("#closeBtn");
-  var signUpBtn = document.querySelector("#dogBtn");
+  var signUpBtn = document.querySelector("#signUpBtn");
   var mdl = new BulmaModal("#signUpModal");
 
-  dogBtn.addEventListener("click", function () {
-    $("#modal-dog-name").text(this.dataset.name);
-    mdl.show();
+  document.addEventListener('click', function(event){
+    if(event.target.classList.contains("dogBtn")){
+      $('#signUpBtn').attr("data-id", event.target.dataset.dogid);
+      $("#modal-dog-name").text(event.target.dataset.name);
+      mdl.show();
+    }
   });
 
   signUpBtn.addEventListener("click", function () {
     // script needed to go to sign up page
+    window.location.href = `/volunteers/signup/${this.dataset.id}`;
   });
 
   closeBtn.addEventListener("click", function () {
@@ -77,3 +80,4 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("closed");
   });
 });
+
