@@ -2,124 +2,126 @@
 <section class="section">
   <form class="create-form">
     <div class="container has-text-centered">
-      <div id="add-dog-headline"><img src="/assets/images/headlines/addDogHeadline.svg" alt="Kiwi standing on oval"></div>
-      <div class="box" id="background-box">
-      <div class="column is-half is-offset-one-quarter">
-        <!-- ADD DOG FORM -->
-        <label class="label">Upload Photo</label>
-        <div class="file has-name is-centered">
-          <label class="file-label">
-            <img id="profile-pic" src="/assets/images/img/dogph.png" alt="dog picture"
-              style="width:40px;height:40px; margin-right:10px;">
-            <input class="file-input" type="file" name="img_path" id="img_path" />
-            <span class="file-cta">
-              <span class="file-icon">
-                <i class="fas fa-upload"></i>
-              </span>
-              <span class="file-label" for="img_path"> Choose a file… </span>
-            </span>
-            <span class="file-name">
-              No file chosen
-            </span>
-          </label>
-        </div>
-        <br />
-        <div class="field" id="name">
-          <label class="label" for="dog">Name</label>
-          <div class="control">
-            <input class="input" type="text" id="dog-name" name="name" placeholder="Barkley" />
-          </div>
-        </div>
-        <div class="dropdown" style="margin-bottom: 20px;">
-
-          <div class="field" id="age" style="margin-left: 20px; margin-right: 20px;">
-            <label class="label" for="dog">Age</label>
-            <div class="control">
-              <input class="input" type="text" id="dog-age" name="age" placeholder="3" />
-            </div>
-          </div>
-
-          <div class="field" id="breed" style="margin-left: 20px; margin-right: 20px;">
-            <label class="label" for="dog">Breed</label>
-            <div class="control">
-              <input class="input" type="text" id="dog-breed" name="breed" placeholder="Cocker Spaniel" />
-            </div>
-          </div>
-
-        </div>
-
-        <div class="field">
-          <label class="label" for="dog">Brief Bio</label>
-          <div class="control">
-            <textarea class="textarea" type="text" id="dog-bio" name="bio"
-              placeholder="Hi, my name is Barkley! I love to go on walks!"></textarea>
-          </div>
-        </div>
-
-        <div class="dropdown" style="margin-bottom: 10px; padding: 10px;">
-
-          <div class="field" id="gender" style="padding: 10px;">
-            <label class="label" for="gender">Gender</label>
-            <div class="control">
-              <label class="radio">
-                <input type="radio" name="gender" value="Male" data-name="Male" checked />
-                Male
-              </label>
-              <label class="radio">
-                <input type="radio" name="gender" value="Female" data-name="Female" />
-                Female
-              </label>
-            </div>
-          </div>
-
-          <div class="field" id="size" style="padding: 10px;">
-            <label class="label" for="size">Size</label>
-            <div class="control">
-              <div class="select">
-                <select name="size">
-                  <option value="Small" data-name="Small" selected>Small</option>
-                  <option value="Medium" data-name="Medium">Medium</option>
-                  <option value="Large" data-name="Large">Large</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field" id="energy" style="padding: 10px;">
-            <label class="label">Energy Level</label>
-            <div class="control">
-              <div class="select">
-                <select name="energy_level">
-                  <option value="Low" data-name="Low" selected>Low</option>
-                  <option value="Moderate" data-name="Moderate">Moderate</option>
-                  <option name="energy_level" value="High" data-name="High">High</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="field is-grouped is-grouped-centered" style="margin-bottom: 20px;">
-      <p class="control">
-        <button type="submit" class="button is-info is-medium">
-          Submit
-        </button>
-      </p>
-      <p class="control">
-        <button class="button is-light is-medium" id="cancelBtn">
-          Cancel
-        </button>
-      </p>
-   
-    </div>
-
+      <div id="add-dog-headline"><img src="/assets/images/headlines/addDogHeadline.svg" alt="add dog headline">
       </div>
-</div>
+      <div class="box" id="background-box">
+        <div class="column is-half is-offset-one-quarter">
+          <!-- ADD DOG FORM -->
+          <label class="label">Upload Photo</label>
+          <label>Square, 1:1 format recommended.</label>
+          <div class="file has-name is-centered" style="padding-top: 10px;">
+            <label class="file-label">
+              <img id="profile-pic" src="/assets/images/img/dogph.png" alt="dog picture"
+                style="width:40px;height:40px; margin-right:10px;">
+              <input class="file-input" type="file" name="img_path" id="img_path" />
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label" for="img_path"> Choose a file… </span>
+              </span>
+              <span class="file-name">
+                No file chosen
+              </span>
+            </label>
+          </div>
+          <br />
+          <div class="field" id="name">
+            <label class="label" for="dog">Name</label>
+            <div class="control">
+              <input class="input" type="text" id="dog-name" name="name" placeholder="Barkley" />
+            </div>
+          </div>
+          <div class="dropdown" style="margin-bottom: 20px;">
+
+            <div class="field" id="age" style="margin-left: 20px; margin-right: 20px;">
+              <label class="label" for="dog">Age</label>
+              <div class="control">
+                <input class="input" type="text" id="dog-age" name="age" placeholder="3" />
+              </div>
+            </div>
+
+            <div class="field" id="breed" style="margin-left: 20px; margin-right: 20px;">
+              <label class="label" for="dog">Breed</label>
+              <div class="control">
+                <input class="input" type="text" id="dog-breed" name="breed" placeholder="Cocker Spaniel" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="field">
+            <label class="label" for="dog">Brief Bio</label>
+            <div class="control">
+              <textarea class="textarea" type="text" id="dog-bio" name="bio"
+                placeholder="Hi, my name is Barkley! I love to go on walks!"></textarea>
+            </div>
+          </div>
+
+          <div class="dropdown" style="margin-bottom: 10px; padding: 10px;">
+
+            <div class="field" id="gender" style="padding: 10px;">
+              <label class="label" for="gender">Gender</label>
+              <div class="control">
+                <label class="radio">
+                  <input type="radio" name="gender" value="Male" data-name="Male" checked />
+                  Male
+                </label>
+                <label class="radio">
+                  <input type="radio" name="gender" value="Female" data-name="Female" />
+                  Female
+                </label>
+              </div>
+            </div>
+
+            <div class="field" id="size" style="padding: 10px;">
+              <label class="label" for="size">Size</label>
+              <div class="control">
+                <div class="select">
+                  <select name="size">
+                    <option value="Small" data-name="Small">Small</option>
+                    <option value="Medium" data-name="Medium">Medium</option>
+                    <option value="Large" data-name="Large">Large</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" id="energy" style="padding: 10px;">
+              <label class="label">Energy Level</label>
+              <div class="control">
+                <div class="select">
+                  <select name="energy_level">
+                    <option value="Low" data-name="Low">Low</option>
+                    <option value="Moderate" data-name="Moderate">Moderate</option>
+                    <option value="High" data-name="High">High</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field is-grouped is-grouped-centered" style="margin-bottom: 20px;">
+            <p class="control">
+              <button type="submit" class="button is-info is-medium">
+                Submit
+              </button>
+            </p>
+            <p class="control">
+              <button class="button is-light is-medium" id="cancelBtn">
+                Cancel
+              </button>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
 
 
     </div>
 
-    
+
   </form>
 </section>
 
