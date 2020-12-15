@@ -46,7 +46,7 @@ router.get("/volunteers/confirmation/:id", (req, res) => {
         }
     })
     .then(dog => {
-        res.render("confirmation", {name: dog.name, img_path: dog.image_path}); 
+        res.render("confirmation", {name: dog.name, img_path: dog.img_path}); 
     })
     .catch(err => {
         console.log(err);
