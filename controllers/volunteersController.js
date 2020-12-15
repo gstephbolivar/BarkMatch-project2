@@ -17,7 +17,7 @@ router.get("/volunteers/dogalog", (req, res) => {
     })
     .catch(err => {
         console.log(err);
-        res.status(500).json({error: "Oops! Something went wrong."});
+        res.status(500).render("errorPage");
     })
     
 })
@@ -30,7 +30,7 @@ router.get("/volunteers/signup/:id", (req, res) => {
         }
     })
     .then(dog => {
-        res.render("signUp", {name: dog.name}); 
+        res.render("signUp", {name: dog.name, id: dog.id}); 
     })
     .catch(err => {
         console.log(err);
@@ -62,8 +62,10 @@ router.post("/api/volunteers/signup", (req, res) => {
 
     db.Volunteer.create(volunteer)
     .then(result => {
+        console.log(result);
         db.Dogs.update({VolunteerId: result.dataValues.id, available: false}, {where: {id: req.body.dogId}})
-        .then(() => {
+        .then((data) => {
+            console.log(data);
             res.status(200).json({id: result.dataValues.id});
         })
         .catch(err => {

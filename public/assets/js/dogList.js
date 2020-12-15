@@ -49,13 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
             this.elem.addEventListener(event, callback)
         }
     }
-    
+
     var dogBtn = document.querySelector("#dogBtn")
     var closeBtn = document.querySelector("#closeBtn")
     var signUpBtn = document.querySelector("#dogBtn")
     var mdl = new BulmaModal("#signUpModal")
     
     dogBtn.addEventListener("click", function () {
+        $('#modal-dog-name').text(this.dataset.name);
         mdl.show()
     })
 
@@ -76,3 +77,4 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     
     });
+});

@@ -3,6 +3,7 @@ $(function() {
     // The following variables and ajax GET call is to properly check the boxes in the edit form with the current data from the dog chosen.
     let dogID = $(".edit-form").data("id");
     let query = `/api/dogs/${dogID}`
+    
 
     $.ajax({
         type: "GET",
@@ -41,7 +42,7 @@ $(function() {
 
         //Gather form data
         const formData = new FormData(this);
-        console.log(formData);
+
         let query = `/api/dogs/${dogID}`;
         console.log("here");  
 
@@ -53,38 +54,11 @@ $(function() {
           processData: false         
         })
         .then(function(data) {  
-            console.log("made it")
            window.location.href = "/dashboard";
         })
         .catch(err => {
           console.log(err);
         });
-
-
-        // let newDog = {
-        //   name: $("#dog-name").val().trim(),
-        //   age: $("#dog-age").val().trim(),
-        //   breed: $("#dog-breed").val().trim(),
-        //   bio: $("#dog-bio").val().trim(),
-        //   gender: $("input[name=gender]:checked").data('name'),
-        //   size: $("input[name=size]:checked").data('name'),
-        //   energy_level: $("input[name=energy]:checked").data('name'),
-        // };
-        // console.log(newDog);
-
-        // Send the POST request.
-        // $.ajax("/api/dogs", {
-        //   type: "POST",
-        //   data: newDog
-        // }).then(
-        //   function() {
-        //     console.log("created new dog");
-        //     console.log(newDog);
-        //     // Reload the page to get the updated list
-        //     location.reload();
-          
-        // }
-        // );
       });
 
       function readURL(input) {
