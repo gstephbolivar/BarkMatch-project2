@@ -69,7 +69,7 @@ router.post("/api/volunteers/signup", (req, res) => {
 
             db.Dogs.findOne({where: {id: req.body.dogId}})
             .then(dog => {
-                mailer(dog, result.dataValues.email);
+                mailer(dog, result.dataValues);
                 res.status(200).json({id: result.dataValues.id});
             })
             
