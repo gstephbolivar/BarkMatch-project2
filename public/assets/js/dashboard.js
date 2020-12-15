@@ -80,12 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var yesBtn = document.querySelector("#yesBtn");
   var mdl = new BulmaModal("#deleteModal");
 
-  deleteBtn.addEventListener("click", function () {
-    mdl.show();
-  });
-
   addBtn.addEventListener("click", function () {
     window.location.href = "/dashboard/add";
+  });
+
+  deleteBtn.addEventListener("click", function () {
+    mdl.show();
   });
 
   yesBtn.addEventListener("click", function () {
