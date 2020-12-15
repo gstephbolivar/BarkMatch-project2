@@ -33,7 +33,7 @@ module.exports = function(dog, email){
         if (error) {
           console.log(error);
         } else {
-          console.log('Email sent: ' + info.response);
+          console.log('Email sent: ' + info.response + "\n" + "Email Recipient: " + email);
         }
       });
 }

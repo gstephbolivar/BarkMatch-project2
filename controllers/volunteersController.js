@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const mailer = require('../config/mailer');
 
 
 //HTML Routes
@@ -62,11 +63,16 @@ router.post("/api/volunteers/signup", (req, res) => {
 
     db.Volunteer.create(volunteer)
     .then(result => {
-        console.log(result);
+        
         db.Dogs.update({VolunteerId: result.dataValues.id, available: false}, {where: {id: req.body.dogId}})
         .then((data) => {
-            console.log(data);
-            res.status(200).json({id: result.dataValues.id});
+
+            db.Dogs.findOne({where: {id: req.body.dogId}})
+            .then(dog => {
+                mailer(dog, result.dataValues.email);
+                res.status(200).json({id: result.dataValues.id});
+            })
+            
         })
         .catch(err => {
             console.log(err);
