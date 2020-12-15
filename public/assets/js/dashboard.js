@@ -11,7 +11,7 @@
         const btn = $(this);
 
         $.ajax({
-            url: "/api/dogs/" + $('#deleteBtn').data('id'),
+            url: "/api/dogs/" + $('.deleteBtn').data('id'),
             type: "DELETE",
         }).then(() => {
             window.location.reload();
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  var deleteBtn = document.querySelector("#deleteBtn");
+  var deleteBtn = document.querySelector(".deleteBtn");
   var closeBtn = document.querySelector("#closeBtn");
   var addBtn = document.querySelector("#addBtn");
   var noBtn = document.querySelector("#noBtn");
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "/dashboard/add";
   });
 
-  deleteBtn.addEventListener("click", function () {
+  $('body').on('click', '.deleteBtn', () => {
     mdl.show();
   });
 
