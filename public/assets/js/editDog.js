@@ -61,6 +61,7 @@ $(function() {
         });
       });
 
+      
       function readURL(input) {
         if (input.files && input.files[0]) {
           var reader = new FileReader();
@@ -74,6 +75,17 @@ $(function() {
       }
       
       $("#img_path").change(function() {
+        let path = $(this).val();
+        path = path.replace("C:\\fakepath\\", "");
+        $('.file-name').text(path);
         readURL(this);
+      });
+
+      // Cancel back to dashboard btn //
+
+      var cancelBtn = document.querySelector("#cancelBtn");
+
+      cancelBtn.addEventListener("click", function () {
+        window.location.href = "/dashboard";
       });
 })
