@@ -45,7 +45,7 @@
                     </div>
                     <footer class="card-footer">
                         <a href="/dashboard/edit/{{id}}" id="editBtn" class="card-footer-item">Edit</a>
-                        <a class="card-footer-item deleteBtn" data-id="{{id}}">Delete</a>
+                        <a class="card-footer-item deleteBtn" data-id="{{id}}" data-dogname="{{name}}">Delete</a>
                     {{#if available}}{{else}}<a id="availableBtn" class="card-footer-item availableBtn" name="{{available}}" data-id="{{id}}">Available</a>{{/if}}
                     </footer>
                 </div>
@@ -70,11 +70,11 @@
     <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
-            <p class="modal-card-title">Great news! Did {{name}} get adopted?</p>
+            <p class="modal-card-title">Great news! Did <span id="modal-dog-name"></span> get adopted?</p>
             <button class="delete" id="closeBtn" aria-label="close"></button>
         </header>
         <footer class="modal-card-foot">
-            <button class="button is-success" id="yesBtn">Yes!</button>
+            <button class="button is-success" id="yesBtn" data-id="">Yes!</button>
             <button class="button" id="noBtn" data-bulma-modal="close">Not yet.</button>
         </footer>
     </div>

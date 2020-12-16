@@ -1,24 +1,12 @@
-// $(function(){
-//     $('#addBtn').on('click', function(){
-//         window.location.href = "/dashboard/add";
-//     });
-
-// //     $('#deleteBtn').on('click', function(){
-// //         $('.modal').addClass('is-active');
-// //     })
-
-    $('#yesBtn').on('click', function(){
-      console.log(this);
-        const btn = $(this);
+$('#yesBtn').on('click', function(){
 
         $.ajax({
-            url: "/api/dogs/" + $('.deleteBtn').data('id'),
+            url: "/api/dogs/" + $(this).data('id'),
             type: "DELETE",
         }).then(() => {
             window.location.reload();
         })
-    })
-// //  })
+  })
 
 $(".availableBtn").on('click', function() {
   if (this.name === "false"){
@@ -61,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       var that = this;
+      debugger;
       modalClose.forEach(function (e) {
         e.addEventListener("click", function () {
-          that.elem.classList.toggle("is-active");
 
           var event = new Event("modal:close");
 
@@ -100,8 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "/dashboard/add";
   });
 
-  $('body').on('click', '.deleteBtn', () => {
-    mdl.show();
+  document.addEventListener('click', function(event){
+    if(event.target.classList.contains("deleteBtn")){
+        $('#yesBtn').attr("data-id", event.target.dataset.id);
+        $("#modal-dog-name").text(event.target.dataset.dogname);
+        mdl.show();
+    }
   });
 
   yesBtn.addEventListener("click", function () {
