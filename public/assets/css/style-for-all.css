@@ -1,0 +1,42 @@
+#background-box {
+    background-color: #99ede0;
+    width: 800px;
+    display: block;
+    margin: auto;
+}
+
+#add-dog-headline {
+    display: block;
+    margin: auto;
+    width: 600px;
+    margin-bottom: -44px;
+    margin-top: -45px;
+    
+}
+
+#content {
+    display: flex;
+    min-height: 91vh;
+    flex-direction: column;
+  }
+    
+  #content {
+    flex: 1;
+  }
+
+
+@media only screen and (max-width: 768px) {
+
+    #background-box {
+        width: auto;
+        display: block;
+        margin: auto;
+    } 
+
+    #add-dog-headline {
+        width: 400px;
+        margin-bottom: -32px;
+        
+    }
+}
+

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../models");
+const db = require('../models');
+const mailer = require('../config/mailer');
+
 
 //HTML Routes
 //User facing home page

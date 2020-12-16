@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const fs = require('fs');
+const path = require('path');
 
 
 //HTML Routes
@@ -62,16 +64,15 @@ router.post("/api/dogs", (req, res) => {
             if (req.files && req.files.img_path) {
 
                 const picture = req.files.img_path;
+                const dogImagePath = `/assets/images/dogs/Dog-${result.dataValues.id}.jpg`
 
-                picture.mv(`public/assets/images/dogs/${dog.name}-${result.dataValues.id}.jpg`, function (err) {
+                picture.mv(`public` + dogImagePath, function (err) {
                     if (err) {
                         console.log(err);
                         return res.status(500).json(err);
                     }
 
-                    const imagePath = `/assets/images/dogs/${dog.name}-${result.dataValues.id}.jpg`
-
-                    db.Dogs.update({ img_path: imagePath }, { where: { id: result.dataValues.id } })
+                    db.Dogs.update({ img_path: dogImagePath }, { where: { id: result.dataValues.id } })
                         .then(result => {
 
                             if (result[0] === 1) {
@@ -126,7 +127,7 @@ router.put("/api/dogs/:id", (req, res) => {
 
                     const picture = req.files.img_path;
 
-                    picture.mv(`public/assets/images/dogs/${dog.name}-${req.params.id}.jpg`, function (err) {
+                    picture.mv(`public/assets/images/dogs/Dog-${req.params.id}.jpg`, function (err) {
                         if (err) {
                             console.log(err);
                             return res.status(500).json(err);
@@ -151,7 +152,11 @@ router.put("/api/dogs/:id", (req, res) => {
 
 //Delete a dog
 router.delete("/api/dogs/:id", (req, res) => {
-    db.Dogs.destroy({ where: { id: req.params.id } })
+    db.Dogs.findOne({where: {id: req.params.id}})
+    .then(dog => {
+        deleteFile(dog.img_path);
+
+        db.Dogs.destroy({ where: { id: req.params.id } })
         .then(result => {
             if (result > 0) {
                 return res.status(200).end();
@@ -165,6 +170,30 @@ router.delete("/api/dogs/:id", (req, res) => {
             console.log(err);
             res.status(500).json(err);
         })
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 })
+
+function deleteFile(file){
+    const dogFile = path.basename(file);
+    const dogImagePath = "./public/assets/images/dogs/" + dogFile;
+    fs.access(dogImagePath, (err) => {
+        if(err){
+            if(err.code === "ENOENT"){
+                return;
+            }
+        }
+
+        fs.unlink(dogImagePath, (err) => {
+            if(err){
+                console.log(err);
+            }
+            console.log(dogImagePath + " deleted.");
+        });
+    })
+}
 
 module.exports = router;
