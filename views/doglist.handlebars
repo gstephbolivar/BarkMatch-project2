@@ -32,11 +32,11 @@
                             {{bio}}
                             <br />
                         </div>
-                        <p class="subtitle is-6 has-text-dark">{{available}}</p>
+                        <p class="subtitle is-6 has-text-dark">{{#if available}}Available{{else}}Unavailable{{/if}}</p>
                     </div>
                     <footer class="card-footer">
                         <button class="button card-footer-item is-success is-light dogBtn"
-                            data-name="{{name}}" data-dogid="{{id}}">Walk {{name}}!</button>
+                            {{#unless available}}disabled style="background: #c7c4c4;"{{/unless}} data-name="{{name}}" data-dogid="{{id}}">Walk {{name}}!</button>
                     </footer>
                 </div>
             </div>
