@@ -13,7 +13,7 @@
             <label class="file-label">
               <img id="profile-pic" src="/assets/images/img/dogph.png" alt="dog picture"
                 style="width:40px;height:40px; margin-right:10px;">
-              <input class="file-input" type="file" name="img_path" id="img_path" />
+              <input class="file-input" type="file" name="img_path" id="img_path" accept=".jpeg,.JPEG,.png,.PNG" />
               <span class="file-cta">
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>
@@ -29,7 +29,7 @@
           <div class="field" id="name">
             <label class="label" for="dog">Name</label>
             <div class="control">
-              <input class="input" type="text" id="dog-name" name="name" placeholder="Barkley" />
+              <input class="input" type="text" id="dog-name" name="name" placeholder="Barkley" minlength="1" required/>
             </div>
           </div>
           <div class="dropdown" style="margin-bottom: 20px;">
@@ -37,14 +37,14 @@
             <div class="field" id="age" style="margin-left: 20px; margin-right: 20px;">
               <label class="label" for="dog">Age</label>
               <div class="control">
-                <input class="input" type="text" id="dog-age" name="age" placeholder="3" />
+                <input class="input" type="number" id="dog-age" name="age" placeholder="3" minlength="1" required/>
               </div>
             </div>
 
             <div class="field" id="breed" style="margin-left: 20px; margin-right: 20px;">
               <label class="label" for="dog">Breed</label>
               <div class="control">
-                <input class="input" type="text" id="dog-breed" name="breed" placeholder="Cocker Spaniel" />
+                <input class="input" type="text" id="dog-breed" name="breed" placeholder="Cocker Spaniel" minlength="1" required/>
               </div>
             </div>
 
@@ -54,7 +54,7 @@
             <label class="label" for="dog">Brief Bio</label>
             <div class="control">
               <textarea class="textarea" type="text" id="dog-bio" name="bio"
-                placeholder="Hi, my name is Barkley! I love to go on walks!"></textarea>
+                placeholder="Hi, my name is Barkley! I love to go on walks!" minlength="1" required></textarea>
             </div>
           </div>
 

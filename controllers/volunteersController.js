@@ -83,7 +83,7 @@ router.post("/api/volunteers/signup", (req, res) => {
               id: req.body.dogId,
             },
           }).then((dog) => {
-            console.log(data);
+            mailer(dog, result.dataValues)
             res
               .status(200)
               .json({ dog: dog, volunteerId: result.dataValues.id });
