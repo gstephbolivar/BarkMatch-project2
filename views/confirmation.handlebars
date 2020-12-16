@@ -1,29 +1,33 @@
-<img src="/assets/images/logo.svg" alt="Logo">
+<section id="home" class="hero is-large">
+    <div id="confirmation-logo"><img src="/assets/images/logo.svg" alt="Logo"></div>
+    <div class="hero-head">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-5">
+                    <figure class="image" id="dog-image">
+                        <img src="{{img_path}}" alt="{{dogName}} headshot">
+                    </figure>
+
+                </div>
+                <div class="column is-6" id="information">
 
 
-<p style="text-align: center; font-size: 300%;"> {{dogName}} is excited to hang out with you {{volunteerName}}!</p>
+                    <h1 class="title is-title is-size-1 has-text-weight-bold">{{dogName}} is excited to hang out with
+                        you,
+                        {{volunteerName}}!</h1>
 
-<div class="container" style="margin-bottom: auto;">
-    <div class="row">
-        <div class="col-sm-6">
-            <img style="border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;" src="{{img_path}}" alt="{{dogName}} headshot">
-        </div>
-        <div class="col-sm-6">
-            <p>
-                Please contact the Atlanta Humane Society to set up a time to walk {{dogName}}!
-            </p>
-            <br>
-            <ul>
-                <li>
-                    Address: 981 Howell Mill Road NW, Atlanta,GA 30318
-                </li>
-                <li>
-                    Phone Number: (404) 875-5331
-                </li>
-            </ul>
+                    <p class="subtitle is-4 has-margin-top-20 is-family-primary">Please contact the Atlanta Humane
+                        Society to set up a time to walk {{dogName}}!</p>
+
+                    <p>
+                        Address: 981 Howell Mill Road NW, Atlanta,GA 30318
+                    </p>
+                    
+                    <p>Phone Number: (404) 875-5331</p>
+
+
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>

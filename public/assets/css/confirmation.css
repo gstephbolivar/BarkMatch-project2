@@ -1,0 +1,43 @@
+#confirmation-logo {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#dog-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: 10px solid #ffffff;
+    border-radius: 5px;
+}
+
+#information {
+    text-align: left;
+}
+
+p {
+    padding-right: 10%;
+}
+
+.columns {
+    margin-top: 5%;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    #confirmation-logo {
+      width: 90%;
+    }
+
+    h1, p {
+        text-align: center !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+
+}
