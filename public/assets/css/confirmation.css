@@ -20,12 +20,19 @@
 
 p {
     padding-right: 10%;
+   
 }
 
 .columns {
     margin-top: 5%;
 }
 
+#address-icon, #phone-icon {
+    width: 30px;
+    position: relative;
+  top: 5px;
+  left: 5px;
+}
 
 @media only screen and (max-width: 768px) {
 
