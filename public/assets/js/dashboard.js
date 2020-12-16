@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       var that = this;
-      debugger;
       modalClose.forEach(function (e) {
         e.addEventListener("click", function () {
 
