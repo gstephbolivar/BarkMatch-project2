@@ -1,7 +1,7 @@
 /* fonts */
 @font-face {
-    font-family: DottiesVanilla-Medium;
-    src: url(/assets/images/fonts/DottiesVanilla-Medium.otf);
+    font-family: DottiesVanilla-ExtraBold;
+    src: url(/assets/images/fonts/DottiesVanilla-ExtraBold.otf);
   }
 
 /* barkmatch logo */
@@ -24,28 +24,32 @@
 
 /* confirmation line, address, phone etc */
 #information {
-    text-align: left;
+    text-align: center;
+    margin-top: 20px;
 }
 
 h1 {
-    font-family: DottiesVanilla-Medium;
+    font-family: DottiesVanilla-ExtraBold;
 }
 
-p {
-    padding-right: 10%;
-   
-}
 
 .columns {
     margin-top: 5%;
 }
 
-#address-icon, #phone-icon {
-    width: 30px;
-    position: relative;
-  top: 5px;
-  left: 5px;
+
+
+#grouped-buttons {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
+
+#shelter-info {
+    margin: 20px;
+}
+
 
 /* mobile responsive */
 @media only screen and (max-width: 768px) {
@@ -54,11 +58,13 @@ p {
       width: 90%;
     }
 
+    #dog-image {
+       top: 10% 
+    }
+
     h1, p {
-        text-align: center !important;
         padding-left: 20px !important;
         padding-right: 20px !important;
     }
-
 
 }

@@ -1,8 +1,8 @@
 <section id="home" class="hero is-large">
     <div id="confirmation-logo"><img src="/assets/images/logo.svg" alt="Logo"></div>
     <div class="hero-head">
-        <div class="container">
-            <div class="columns is-vcentered">
+        <div class="container is-desktop">
+            <div class="columns">
                 <div class="column is-5">
                     <figure class="image" id="dog-image">
                         <img src="{{img_path}}" alt="{{dogName}} headshot">
@@ -11,22 +11,25 @@
                 </div>
                 <div class="column is-6" id="information">
 
-
-                    <h1 class="title is-title is-size-1 has-text-weight-bold">{{dogName}} is excited to hang out with
+                    <h1 class="title is-title is-size-1">{{dogName}} is excited to hang out with
                         you,
                         {{volunteerName}}!</h1>
 
-                    <p class="subtitle is-4 has-margin-top-20 is-family-primary">Please contact the Atlanta Humane
+                    <p class="subtitle is-3 is-family-primary">Please contact the Atlanta Humane
                         Society to set up a time to walk {{dogName}}!</p>
 
-                    <p><img id="address-icon" src="/assets/images/icons/dog-house.svg" alt="dog house icon">981 Howell Mill Road NW, Atlanta, GA 30318
-                    </p>
-                    
-                    <p><img id="phone-icon" src="/assets/images/icons/smartphone.svg" alt="dog house icon"> (404) 875-5331</p>
+                    <div class="field is-grouped is-centered" id="grouped-buttons">
+                        <div class="buttons">
+                            <button class="button is-primary is-light is-medium">Find Us</button>
 
+                            <button class="button is-primary is-light is-medium">Call Us</button>
+                        </div>
+                    </div>
 
+                    <div id="shelter-info">
+                        <p>981 Howell Mill Road NW, Atlanta, GA 30318 | (404) 875-5331</p></div>
                 </div>
             </div>
-        </div>
-    </div>
 </section>
+
+<script type="text/javascript" src="/assets/js/confirmation.js"></script>
