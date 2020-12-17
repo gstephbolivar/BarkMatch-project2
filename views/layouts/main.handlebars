@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="/assets/css/style-for-all.css" type="text/css" />
     <link rel="stylesheet" href="/assets/css/index.css" type="text/css" />
     <link rel="stylesheet" href="/assets/css/deleteDog.css" type="text/css" />
-     <link rel="stylesheet" href="/assets/css/dogList.css" type="text/css" />
-     <link rel="stylesheet" href="/assets/css/confirmation.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/dogList.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/confirmation.css" type="text/css" />
     <title>BARKMATCH</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -26,25 +26,46 @@
                     <div class="navbar-brand">
                         <a class="navbar-item"> <img src="/assets/images/logo.svg" alt="Logo" style="width: 152px"> </a>
                     </div>
+                     <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item">
+                                <span class="icon">
+                                    <i class="fas fa-paw"></i>
+                                </span>
+                                <span id="nav-text"> <strong>Dogalog</strong></span>
+                            </a>
+
+                            <a class="navbar-item">
+                                <span class="icon">
+                                   <i class="fas fa-dog"></i>
+                                </span>
+                                <strong id="nav-text">Shelter Login</strong>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="authenticaton-container">
                         <a href="/logout" id="logout" style="display:none">Log Out</a>
                     </div>
                     <div>
                         <span style="display:none">Logged in as <span id="username"></span></span>
                     </div>
+
+
+
                 </div>
             </nav>
         </div>
-            {{{ body }}}
+        {{{ body }}}
     </section>
 
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      © 2020 BarkMatch, Inc. All rights reserved
-    </p>
-  </div>
-</footer>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                © 2020 BarkMatch, Inc. All rights reserved
+            </p>
+        </div>
+    </footer>
 
     <script type="text/javascript" src="/assets/js/main.js"></script>
 </body>
