@@ -1,0 +1,70 @@
+/* fonts */
+@font-face {
+    font-family: DottiesVanilla-ExtraBold;
+    src: url(/assets/images/fonts/DottiesVanilla-ExtraBold.otf);
+  }
+
+/* barkmatch logo */
+#confirmation-logo {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* respective dog image */
+#dog-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: 10px solid #ffffff;
+    border-radius: 5px;
+}
+
+/* confirmation line, address, phone etc */
+#information {
+    text-align: center;
+    margin-top: 10px;
+}
+
+h1 {
+    font-family: DottiesVanilla-ExtraBold;
+}
+
+
+.columns {
+    margin-top: 5%;
+}
+
+
+
+#grouped-buttons {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#shelter-info {
+    margin: 20px;
+}
+
+
+/* mobile responsive */
+@media only screen and (max-width: 768px) {
+
+    #confirmation-logo {
+      width: 90%;
+    }
+
+    #dog-image {
+       top: 10% 
+    }
+
+    h1, p {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+}
