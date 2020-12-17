@@ -2,6 +2,30 @@ document.addEventListener("DOMContentLoaded", function () {
   /* SIGN UP MODAL JAVASCRIPT */
   console.log("JS is linked");
 
+  $(".create-form").on("submit", function(event){
+  event.preventDefault();
+
+  console.log(this);
+  const formData = new FormData(this);
+  let gender = $("#filter-gender").val();
+  let size = $("#filter-size").val();
+  let energy_level = $("#filter-energy_level").val();
+
+  $.ajax({
+    type: "GET",
+    url: `/dogs/${gender}/${size}/${energy_level}`,
+    data: {
+      gender: gender,
+      size: size,
+      energy_level: energy_level,
+    },         
+  }).then((data) => {
+    window.location.href = `/dogs/${gender}/${size}/${energy_level}`
+  }).catch(err => {
+    console.log(err);
+  });
+  })
+
   class BulmaModal {
     constructor(selector) {
       this.elem = document.querySelector(selector);
