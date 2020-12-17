@@ -26,26 +26,29 @@ router.get("/volunteers/dogalog/:gender/:size/:energy", function (req, res) {
   let gender = req.params.gender;
   let size = req.params.size;
   let energy = req.params.energy;
+  const genderArray = ["Male", "Female"];
+  const sizeArray = ["Small", "Medium", "Large"];
+  const energyArray = ["Low","Moderate", "High"];
 
   if (gender === "All" && size === "All" && energy === "All"){
-      gender = ["Male", "Female"];
-      size = ["Small", "Medium", "Large"];
-      energy = ["Low","Moderate", "High"];
+      gender = genderArray;
+      size = sizeArray;
+      energy = energyArray;
   } else if (gender === "All" && size === "All"){
-      gender = ["Male", "Female"];
-      size = ["Small", "Medium", "Large"];
+      gender = genderArray;
+      size = sizeArray;
   } else if (energy === "All" && size === "All"){
-      energy = ["Low","Moderate", "High"];
-      size = ["Small", "Medium", "Large"];
+      energy = energyArray;
+      size = sizeArray;
   } else if (energy === "All" && gender === "All"){
-      energy = ["Low","Moderate", "High"];
-      gender = ["Male", "Female"];
+      energy = energyArray;
+      gender = genderArray;
   } else if (energy === "All"){
-      energy = ["Low","Moderate", "High"];
+      energy = energyArray;
   } else if (size === "All"){
-      size = ["Small", "Medium", "Large"];
+      size = sizeArray;
   } else {
-      gender = ["Male", "Female"];
+      gender = genderArray;
   }
   db.Dogs.findAll({where: {
       gender: gender,
