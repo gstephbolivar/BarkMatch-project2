@@ -2,8 +2,19 @@
     height: 100%;
     
 }
-
-#main-logo {
-    width: 50%;
+#index-content {
+    margin-right: 15%;
+    margin-left: 15%;
 }
-   
+
+
+/* mobile responsive */
+@media only screen and (max-width: 768px) {
+
+    #index-content {
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+    
+
+}
