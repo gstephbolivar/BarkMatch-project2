@@ -1,20 +1,43 @@
 #index-page {
-    height: 100%;
-    
+  height: 100%;
 }
 #index-content {
-    margin-right: 15%;
-    margin-left: 15%;
+  margin-right: 15%;
+  margin-left: 15%;
 }
 
+#mobile-image {
+    visibility: hidden;
+    width: 1%;
+}
+
+#desktop-image {
+    visibility: visible;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
 
 /* mobile responsive */
 @media only screen and (max-width: 768px) {
+  #index-content {
+    margin-right: 2%;
+    margin-left: 2%;
+  }
 
-    #index-content {
-        margin-right: 2%;
-        margin-left: 2%;
-    }
-    
+  #desktop-image {
+    visibility: hidden;
+    width: 1%; 
+}
+
+#mobile-image {
+    visibility: visible;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
 
 }
