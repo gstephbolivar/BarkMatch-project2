@@ -9,16 +9,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const formData = new FormData(this);
   let gender = $("#filter-gender").val();
   let size = $("#filter-size").val();
-  let energy_level = $("#filter-energy_level").val();
+  let energy = $("#filter-energy_level").val();
 
   $.ajax({
     type: "GET",
-    url: `/dogs/${gender}/${size}/${energy_level}`,
-    data: {
-      gender: gender,
-      size: size,
-      energy_level: energy_level,
-    },         
+    url: `/dogs/${gender}/${size}/${energy}`,
   }).then((data) => {
     window.location.href = `/dogs/${gender}/${size}/${energy_level}`
   }).catch(err => {

@@ -23,11 +23,14 @@ router.get("/dogs", function (req, res) {
 
 });
 
-router.get("/dogs/:gender/:size/:energy_level", function (req, res) {
+router.get("/dogs/:gender/:size/:energy", function (req, res) {
+    if (req.params.gender === "All"){
+        console.log("This worked")
+    }
     db.Dogs.findAll({where: {
         gender: req.params.gender,
         size: req.params.size,
-        energy_level: req.params.energy_level,
+        energy_level: req.params.energy,
     }})
     .then((filteredDogs) => {
         let hbsObject = {
