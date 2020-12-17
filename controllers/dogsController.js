@@ -38,6 +38,32 @@ router.get("/api/dogs", (req, res) => {
         })
 });
 
+router.get("/api/dogs/filter", (req, res) => {
+
+    const query = {};
+    if(req.query.gender){
+        query.gender = req.query.gender;
+    }
+
+    if(req.query.size){
+        query.size = req.query.size;
+    }
+
+    if(req.query.energy_level){
+        query.energy_level = req.query.energy_level;
+    }
+
+    db.Dogs.findAll({
+        where: query
+    })
+        .then(dog => {
+            res.json(dog);
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        })
+});
+
 //Get one dog dog
 router.get("/api/dogs/:id", (req, res) => {
     db.Dogs.findAll({
