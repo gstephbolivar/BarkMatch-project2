@@ -1,0 +1,1 @@
+INSERT INTO Dogs (name, age, breed, gender, size, energy_level, bio, available, img_path) VALUES ('Oliver', 3, 'pomsky', 'male', 'small', 'moderate', "The most lovable pup you'll see", "true", )
