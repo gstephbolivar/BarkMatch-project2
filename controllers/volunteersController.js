@@ -22,6 +22,53 @@ router.get("/volunteers/dogalog", (req, res) => {
     });
 });
 
+router.get("/volunteers/dogalog/:gender/:size/:energy", function (req, res) {
+  let gender = req.params.gender;
+  let size = req.params.size;
+  let energy = req.params.energy;
+  const genderArray = ["Male", "Female"];
+  const sizeArray = ["Small", "Medium", "Large"];
+  const energyArray = ["Low","Moderate", "High"];
+
+  if (gender === "All" && size === "All" && energy === "All"){
+      gender = genderArray;
+      size = sizeArray;
+      energy = energyArray;
+  } else if (gender === "All" && size === "All"){
+      gender = genderArray;
+      size = sizeArray;
+  } else if (energy === "All" && size === "All"){
+      energy = energyArray;
+      size = sizeArray;
+  } else if (energy === "All" && gender === "All"){
+      energy = energyArray;
+      gender = genderArray;
+  } else if (energy === "All"){
+      energy = energyArray;
+  } else if (size === "All"){
+      size = sizeArray;
+  } else {
+      gender = genderArray;
+  }
+  db.Dogs.findAll({where: {
+      gender: gender,
+      size: size,
+      energy_level: energy,
+  }})
+  .then((filteredDogs) => {
+      let hbsObject = {
+          dogs: filteredDogs,
+      };
+
+      res.render("doglist", hbsObject);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).render("errorPage");
+  })
+  
+});
+
 //Sign Up page
 router.get("/volunteers/signup/:id", (req, res) => {
   db.Dogs.findOne({
