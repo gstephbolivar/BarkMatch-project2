@@ -1,3 +1,4 @@
+
 $('#yesBtn').on('click', function(){
 
         $.ajax({
@@ -16,7 +17,10 @@ $(".availableBtn").on('click', function() {
     $.ajax({
       type: "PUT",
       url: query,
-      data: {available: true}
+      data: {
+        available: true,
+        flag: true,
+      }
     }).then((data) => {
       window.location.reload();
     })

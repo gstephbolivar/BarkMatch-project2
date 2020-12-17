@@ -119,6 +119,9 @@ router.post("/api/dogs", (req, res) => {
 //Update a dog
 router.put("/api/dogs/:id", (req, res) => {
     const dog = req.body;
+    if (dog.flag){    
+    dog.VolunteerId = null;
+    };
     db.Dogs.update(dog, { where: { id: req.params.id } })
         .then(result => {
 
