@@ -24,6 +24,8 @@ router.get("/dogs", function (req, res) {
 });
 
 
+
+
 //API Routes
 //Get all the dogs
 router.get("/api/dogs", (req, res) => {
