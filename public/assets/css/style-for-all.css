@@ -24,6 +24,15 @@
     flex: 1;
   }
 
+  .footer {
+      background-color: hsl(171, 100%, 41%);
+  }
+
+p {
+    color: white;
+    font-weight: bold;
+}
+
 
 @media only screen and (max-width: 768px) {
 
