@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var signUpBtn = document.querySelector("#signUpBtn");
   var mdl = new BulmaModal("#signUpModal");
 
-  document.addEventListener('click', function(event){
-    if(event.target.classList.contains("dogBtn")){
-      $('#signUpBtn').attr("data-id", event.target.dataset.dogid);
+  document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("dogBtn")) {
+      $("#signUpBtn").attr("data-id", event.target.dataset.dogid);
       $("#modal-dog-name").text(event.target.dataset.name);
       mdl.show();
     }
@@ -80,4 +80,3 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("closed");
   });
 });
-
