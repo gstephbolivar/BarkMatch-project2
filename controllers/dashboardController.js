@@ -6,9 +6,11 @@ const db = require("../models");
 
 // Shelter dashboard home page
 router.get("/dashboard", (req, res) => {
-  db.Dogs.findAll()
-    .then((dogs) => {
-      res.render("dashboard", { dogs: dogs });
+  db.Dogs.findAll({
+    include: db.Volunteer,
+  }).then((dogs) => {
+console.log(dogs);
+      res.render("dashboard", {dogs: dogs});
     })
     .catch((err) => {
       console.log(err);

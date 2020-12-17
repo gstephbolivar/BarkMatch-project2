@@ -47,7 +47,13 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
   Dogs.associate = function (models) {
-    Dogs.belongsTo(models.Volunteer);
+    Dogs.belongsTo(models.Volunteer, {
+      foreignKey: {
+        name: 'VolunteerId',
+        allowNull: true,
+        defaultValue: null
+      }
+    });
   };
   return Dogs;
 };
