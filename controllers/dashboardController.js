@@ -7,14 +7,16 @@ const isAuthenticated = require('../config/isAuthenticated');
 
 // Shelter dashboard home page
 router.get("/dashboard", isAuthenticated, (req, res) => {
-    db.Dogs.findAll()
-      .then((dogs) => {
-        res.render("dashboard", { dogs: dogs });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).render("errorPage");
-      });
+  db.Dogs.findAll({
+    include: db.Volunteer,
+  }).then((dogs) => {
+console.log(dogs);
+      res.render("dashboard", {dogs: dogs});
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).render("errorPage");
+    });
 });
 
 // Page to add a dog

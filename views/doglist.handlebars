@@ -1,67 +1,121 @@
 <!-- Hero content: will be in the middle -->
-<div class="hero-body">
+<section class="section" id="dog-list">
     <div class="container has-text-centered">
         <!-- Shelter Logo -->
-        <img src="/assets/images/logo.svg" alt="Logo" style="margin-top: -150%;">
+        <img id="logo" src="/assets/images/logo.svg" alt="Logo">
         <!-- ADD DOG -->
         <br />
-        <br />
-        <br />
-        <!-- DOGALOG -->
-        <div class="columns is-desktop is-centered is-multiline">
-            {{#each dogs}}
-            <div class='column is-4'>
-                <div class="card" style="margin: 10px;">
-                    <div class="card-image">
-                        <figure class="image is-1by1">
-                            <img src={{img_path}} alt="Picture of {{name}}" />
-                        </figure>
-                    </div>
-                    <div class="card-content is-centered">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
-                                <p class="subtitle is-6 has-text-dark">Age: {{age}}</p>
-                                <p class="subtitle is-6 has-text-dark">Breed: {{breed}}</p>
-                                <p class="subtitle is-6 has-text-dark">Gender: {{gender}}</p>
-                                <p class="subtitle is-6 has-text-dark">Size: {{size}}</p>
-                                <p class="subtitle is-6 has-text-dark">Energy Level: {{energy_level}}</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            {{bio}}
-                            <br />
-                        </div>
-                        <p class="subtitle is-6 has-text-dark">{{#if available}}Available{{else}}Unavailable{{/if}}</p>
-                    </div>
-                    <footer class="card-footer">
-                        <button class="button card-footer-item is-success is-light dogBtn"
-                            {{#unless available}}disabled style="background: #c7c4c4;"{{/unless}} data-name="{{name}}" data-dogid="{{id}}">Walk {{name}}!</button>
-                    </footer>
+        <form id="filter-dogs" class="field is-grouped is-grouped-centered">
+
+            <div class="dropdown"></div>
+
+            <div class="field" id="gender">
+                <label class="label" for="gender">Gender</label>
+                <div class="control">
+                    <label class="radio">
+                        <input type="radio" id="dog-male" name="gender" value="Male" data-name="Male" />
+                        Male
+                    </label>
+                    <label class="radio">
+                        <input type="radio" id="dog-female" name="gender" value="Female" data-name="Female" />
+                        Female
+                    </label>
                 </div>
             </div>
-            {{/each}}
-        </div>
 
-        <!-- SIGN UP MODAL -->
-        <div class="modal" id="signUpModal">
-            <div class="modal-background"></div>
-            <div class="modal-card" id="signUpModalCard">
-                <div id="sign-up-dog-modal"><img src="/assets/images/headlines/signUpModalDog.svg" alt="sign up dog image"></div>
-                <header class="modal-card-head">
-                    <p class="modal-card-title">Would you like to walk <span id="modal-dog-name"></span>?</p>
-                    <button class="delete" id="closeBtn" aria-label="close"></button>
-                </header>
-                <section class="modal-card-body has-text-dark">
-                    Specific details about how to walk the dog, contact shelter, etc.
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button is-success" id="signUpBtn">Sign Up</button>
-                    <button class="button" data-bulma-modal="close" id="signUpCancel">Cancel</button>
+            <div class="field" id="size">
+                <label class="label" for="size">Size</label>
+                <div class="control">
+                    <div class="select">
+                        <select name="size">
+                            <option id="dog-small" name="size" value="Small" data-name="Small">Small</option>
+                            <option id="dog-medium" name="size" value="Medium" data-name="Medium">Medium</option>
+                            <option id="dog-large" name="size" value="Large" data-name="Large">Large</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field" id="energy">
+                <label class="label">Energy Level</label>
+                <div class="control">
+                    <div class="select">
+                        <select name="energy_level">
+                            <option id="dog-low" value="Low" data-name="Low">Low</option>
+                            <option id="dog-moderate" value="Moderate" data-name="Moderate">Moderate</option>
+                            <option id="dog-high" value="High" data-name="High">High</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <p class="control" id="filterBtn">
+                <button type="submit" class="button is-info is-medium">
+                    Submit
+                </button>
+            </p>
+
+    </div>
+    </div>
+    </form>
+    <!-- DOGALOG -->
+    <div class="columns is-desktop is-centered is-multiline">
+        {{#each dogs}}
+        <div class='column is-4'>
+            <div class="card" style="margin: 10px;">
+                <div class="card-image">
+                    <figure class="image is-1by1">
+                        <img src={{img_path}} alt="Picture of {{name}}" />
+                    </figure>
+                </div>
+                <div class="card-content is-centered">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
+                            <p class="subtitle is-6 has-text-dark">Age: {{age}}</p>
+                            <p class="subtitle is-6 has-text-dark">Breed: {{breed}}</p>
+                            <p class="subtitle is-6 has-text-dark">Gender: {{gender}}</p>
+                            <p class="subtitle is-6 has-text-dark">Size: {{size}}</p>
+                            <p class="subtitle is-6 has-text-dark">Energy Level: {{energy_level}}</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        {{bio}}
+                        <br />
+                    </div>
+                    <p class="subtitle is-6 has-text-dark">{{#if available}}Available{{else}}Unavailable{{/if}}</p>
+                </div>
+                <footer class="card-footer">
+                    <button class="button card-footer-item is-success is-light dogBtn" {{#unless available}}disabled
+                        style="background: #c7c4c4;" {{/unless}} data-name="{{name}}" data-dogid="{{id}}">Walk
+                        {{name}}!</button>
                 </footer>
             </div>
         </div>
+        {{/each}}
     </div>
-</div>
 
-<script type="text/javascript" src="/assets/js/dogList.js"></script>
+    <!-- SIGN UP MODAL -->
+    <div class="modal" id="signUpModal">
+        <div class="modal-background"></div>
+        <div class="modal-card" id="signUpModalCard">
+            <div id="sign-up-dog-modal"><img src="/assets/images/headlines/signUpModalDog.svg" alt="sign up dog image">
+            </div>
+            <header class="modal-card-head">
+                <p class="modal-card-title">Would you like to walk <span id="modal-dog-name"></span>?</p>
+                <button class="delete" id="closeBtn" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body has-text-dark">
+                Specific details about how to walk the dog, contact shelter, etc.
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="signUpBtn">Sign Up</button>
+                <button class="button" data-bulma-modal="close" id="signUpCancel">Cancel</button>
+            </footer>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/dogList.js"></script>
