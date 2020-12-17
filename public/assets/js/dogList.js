@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     type: "GET",
     url: `/dogs/${gender}/${size}/${energy}`,
   }).then((data) => {
-    window.location.href = `/dogs/${gender}/${size}/${energy_level}`
+    window.location.href = `/dogs/${gender}/${size}/${energy}`
   }).catch(err => {
     console.log(err);
   });

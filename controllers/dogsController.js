@@ -25,8 +25,9 @@ router.get("/dogs", function (req, res) {
 
 router.get("/dogs/:gender/:size/:energy", function (req, res) {
     if (req.params.gender === "All"){
-        console.log("This worked")
-    }
+        console.log("This worked"+ req.params.gender)
+        req.params.gender = ["Male", "Female"];
+    } 
     db.Dogs.findAll({where: {
         gender: req.params.gender,
         size: req.params.size,
@@ -43,7 +44,7 @@ router.get("/dogs/:gender/:size/:energy", function (req, res) {
         console.log(err);
         res.status(500).render("errorPage");
     })
-
+    
 });
 
 
