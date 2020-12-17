@@ -1,4 +1,5 @@
 // buttons for location and call feature
+
 var googleBtn = document.querySelector("#googleBtn");
 var callBtn = document.querySelector("#callBtn");
 
