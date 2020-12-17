@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   $.ajax({
     type: "GET",
-    url: `/dogs/${gender}/${size}/${energy}`,
+    url: `/volunteers/dogalog/${gender}/${size}/${energy}`,
   }).then((data) => {
-    window.location.href = `/dogs/${gender}/${size}/${energy}`
+    window.location.href = `/volunteers/dogalog/${gender}/${size}/${energy}`
   }).catch(err => {
     console.log(err);
   });

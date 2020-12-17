@@ -22,6 +22,50 @@ router.get("/volunteers/dogalog", (req, res) => {
     });
 });
 
+router.get("/volunteers/dogalog/:gender/:size/:energy", function (req, res) {
+  let gender = req.params.gender;
+  let size = req.params.size;
+  let energy = req.params.energy;
+
+  if (gender === "All" && size === "All" && energy === "All"){
+      gender = ["Male", "Female"];
+      size = ["Small", "Medium", "Large"];
+      energy = ["Low","Moderate", "High"];
+  } else if (gender === "All" && size === "All"){
+      gender = ["Male", "Female"];
+      size = ["Small", "Medium", "Large"];
+  } else if (energy === "All" && size === "All"){
+      energy = ["Low","Moderate", "High"];
+      size = ["Small", "Medium", "Large"];
+  } else if (energy === "All" && gender === "All"){
+      energy = ["Low","Moderate", "High"];
+      gender = ["Male", "Female"];
+  } else if (energy === "All"){
+      energy = ["Low","Moderate", "High"];
+  } else if (size === "All"){
+      size = ["Small", "Medium", "Large"];
+  } else {
+      gender = ["Male", "Female"];
+  }
+  db.Dogs.findAll({where: {
+      gender: gender,
+      size: size,
+      energy_level: energy,
+  }})
+  .then((filteredDogs) => {
+      let hbsObject = {
+          dogs: filteredDogs,
+      };
+
+      res.render("doglist", hbsObject);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).render("errorPage");
+  })
+  
+});
+
 //Sign Up page
 router.get("/volunteers/signup/:id", (req, res) => {
   db.Dogs.findOne({
