@@ -21,16 +21,20 @@
   "homepage": "https://github.com/gstephbolivar/project2#readme",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
+    "bcryptjs": "^2.4.3",
     "bulma": "^0.7.2",
-    "node-sass": "^4.9.2",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
     "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
+    "node-sass": "^4.9.2",
     "nodemailer": "^6.4.17",
     "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "sequelize": "^6.3.5"
   }
 }
