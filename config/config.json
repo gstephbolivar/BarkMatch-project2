@@ -2,11 +2,7 @@
   "development": {
     "username": "root",
     
-<<<<<<< HEAD
     "password": "NewPassword20",
-=======
-    "password": "Flounder91!",
->>>>>>> cb089e1f098027f407f4564e53956fc4ef992f16
     "database": "doggo_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

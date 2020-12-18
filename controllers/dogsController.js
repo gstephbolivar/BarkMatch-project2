@@ -5,26 +5,6 @@ const fs = require('fs');
 const path = require('path');
 
 
-//HTML Routes
-// Page to see all dogs
-router.get("/dogs", function (req, res) {
-    db.Dogs.findAll({})
-    .then((allDogs) => {
-        let hbsObject = {
-            dogs: allDogs,
-        };
-
-        res.render("doglist", hbsObject);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).render("errorPage");
-    })
-
-});
-
-
-
 
 //API Routes
 //Get all the dogs
