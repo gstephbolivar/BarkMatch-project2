@@ -5,64 +5,52 @@
         <img id="logo" src="/assets/images/logo.svg" alt="Logo">
         <!-- ADD DOG -->
         <br />
-        <form id="filter-dogs" class="field is-grouped is-grouped-centered create-form">
 
-            <div class="dropdown"></div>
-
-            <div class="field" id="gender">
-                <label class="label" for="gender">Gender</label>
-                <div class="control">
-                    <div class="select">
-                        <select id="filter-gender" name="gender">
-                            <option id="all-gender" name="gender" value="All" data-name="All">All</option>
-                            <option id="dog-male" name="gender" value="Male" data-name="Male">Male</option>
-                            <option id="dog-female" name="gender" value="Female" data-name="Female">Female</option>
-                        </select>
-                    </div>
+        <div class="field is-inline-block" id="size">
+            <div class="control">
+                <div class="select">
+                    <select name="gender" id="gender-select">
+                        <option value="" selected="selected">--Gender--</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
                 </div>
             </div>
-
-            <div class="field" id="size">
-                <label class="label" for="size">Size</label>
-                <div class="control">
-                    <div class="select">
-                        <select id="filter-size" name="size">
-                            <option id="all-size" name="size" value="All" data-name="All">All</option>
-                            <option id="dog-small" name="size" value="Small" data-name="Small">Small</option>
-                            <option id="dog-medium" name="size" value="Medium" data-name="Medium">Medium</option>
-                            <option id="dog-large" name="size" value="Large" data-name="Large">Large</option>
-                        </select>
-                    </div>
+        </div>
+        <div class="field is-inline-block" id="size">
+            <div class="control">
+                <div class="select">
+                    <select name="size" id="size-select">
+                        <option value="" selected="selected">--Size--</option>
+                        <option id="dog-small" value="Small" data-name="Small">Small</option>
+                        <option id="dog-medium" value="Medium" data-name="Medium">Medium</option>
+                        <option id="dog-large" value="Large" data-name="Large">Large</option>
+                    </select>
                 </div>
             </div>
-
-            <div class="field" id="energy">
-                <label class="label">Energy Level</label>
-                <div class="control">
-                    <div class="select">
-                        <select id="filter-energy_level" name="energy_level">
-                            <option id="all-energy" name="energy" value="All" data-name="All">All</option>
-                            <option id="dog-low" name="energy_level" value="Low" data-name="Low">Low</option>
-                            <option id="dog-moderate" name="energy_level" value="Moderate" data-name="Moderate">Moderate
-                            </option>
-                            <option id="dog-high" name="energy_level" value="High" data-name="High">High</option>
-                        </select>
-                    </div>
+        </div>
+        <div class="field is-inline-block" id="energy">
+            <div class="control">
+                <div class="select">
+                    <select name="energy_level" id="energy-select">
+                        <option value="" selected="selected">--Energy Level--</option>
+                        <option id="dog-low" value="Low" data-name="Low">Low</option>
+                        <option id="dog-moderate" value="Moderate" data-name="Moderate">Moderate</option>
+                        <option id="dog-high" value="High" data-name="High">High</option>
+                    </select>
                 </div>
             </div>
-
-
-            <p class="control" id="filterBtn">
-                <button type="submit" class="button is-info is-medium">
-                    Submit
-                </button>
-            </p>
+        </div>
+        <p class="control is-inline-block" id="clearBtn">
+            <button type="button" class="button is-info is-medium">
+                Clear
+            </button>
+        </p>
 
     </div>
-    </div>
-    </form>
+
     <!-- DOGALOG -->
-    <div class="columns is-centered is-multiline">
+    <div class="columns is-desktop is-centered is-multiline dog-container">
         {{#each dogs}}
         <div class='column is-4'>
             <div class="card" style="margin: 10px;">
