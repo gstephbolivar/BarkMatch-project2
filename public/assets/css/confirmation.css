@@ -1,15 +1,19 @@
 /* fonts */
 @font-face {
     font-family: DottiesVanilla-ExtraBold;
-    src: url(/assets/images/fonts/DottiesVanilla-ExtraBold.otf);
+    src: url(/assets/images/fonts/DottiesVanilla-ExtraBold.woff);
   }
 
+.columns {
+    margin-top: -60px;
+}
 /* barkmatch logo */
 #confirmation-logo {
     display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  margin-top: 40px;
+  width: 40%;
 }
 
 /* respective dog image */
@@ -17,7 +21,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 350px;
     border: 10px solid #ffffff;
     border-radius: 5px;
 }
@@ -30,7 +34,10 @@
 
 h1 {
     font-family: DottiesVanilla-ExtraBold;
+
 }
+
+
 
 
 .columns {
@@ -50,6 +57,12 @@ h1 {
     margin: 20px;
 }
 
+#desktop-image {
+    margin-top: 30px;
+    width: 60%;
+}
+    
+
 
 /* mobile responsive */
 @media only screen and (max-width: 768px) {
@@ -62,9 +75,13 @@ h1 {
        top: 10% 
     }
 
+    #mobile-image {
+        margin-top: -60px;
+    }
+
     h1, p {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
     }
 
 }

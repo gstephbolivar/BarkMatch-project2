@@ -27,8 +27,41 @@
 #nav-text, .icon {
     color: #292F36;
 }
+/* Doglist  */
 
+#shelter-logo {
+    width: 80%;
+}
 
+/* CARD STYLING */
+
+#card {
+    border-radius: 8px;
+    background-color: #e9f8f6;
+    text-align: center;
+}
+
+#dog-name {
+    padding-bottom: 10px;
+}
+
+#dog-button {
+    height: 60px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+p {
+    hyphens: none;
+}
+
+#bottom-card {
+    background-image: url(/assets/images/img/paw.svg);
+    background-repeat: no-repeat;
+    position: relative;
+}
 
 /* ADD PAGE */
 #background-box {
