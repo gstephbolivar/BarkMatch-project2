@@ -5,26 +5,6 @@ const fs = require('fs');
 const path = require('path');
 
 
-//HTML Routes
-// Page to see all dogs
-router.get("/dogs", function (req, res) {
-    db.Dogs.findAll({})
-    .then((allDogs) => {
-        let hbsObject = {
-            dogs: allDogs,
-        };
-
-        res.render("doglist", hbsObject);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).render("errorPage");
-    })
-
-});
-
-
-
 
 //API Routes
 //Get all the dogs
@@ -32,6 +12,32 @@ router.get("/api/dogs", (req, res) => {
     db.Dogs.findAll()
         .then(dogs => {
             res.json(dogs);
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        })
+});
+
+router.get("/api/dogs/filter", (req, res) => {
+
+    const query = {};
+    if(req.query.gender){
+        query.gender = req.query.gender;
+    }
+
+    if(req.query.size){
+        query.size = req.query.size;
+    }
+
+    if(req.query.energy_level){
+        query.energy_level = req.query.energy_level;
+    }
+
+    db.Dogs.findAll({
+        where: query
+    })
+        .then(dog => {
+            res.json(dog);
         })
         .catch(err => {
             res.status(500).json(err);
