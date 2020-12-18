@@ -9,9 +9,9 @@ $(function () {
   }).then(function (dog) {
     console.log(dog[0].gender);
     if (dog[0].gender === "Male") {
-      $("#dog-male").prop("checked", true);
+      $("#dog-male").prop("selected", true);
     } else {
-      $("#dog-female").prop("checked", true);
+      $("#dog-female").prop("selected", true);
     }
 
     if (dog[0].size === "Small") {
