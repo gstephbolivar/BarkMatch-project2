@@ -15,7 +15,7 @@ $(function() {
     })
 
     $('#logout').on('click', () => {
-        $(this).hide();
+        $('#logout').hide();
         $('#username').parent().hide();
     })
 })
