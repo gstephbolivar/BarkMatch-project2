@@ -42,7 +42,7 @@
             </div>
         </div>
         <p class="control is-inline-block" id="clearBtn">
-            <button type="button" class="button is-info is-medium">
+            <button type="button" class="button is-info is-medium" style="height: 40px;">
                 Clear
             </button>
         </p>
@@ -50,7 +50,7 @@
         <!-- DOGALOG -->
         <div class="columns is-centered is-multiline dog-container">
             {{#each dogs}}
-            <div class='column is-4'>
+            <div class='column is-4' id="column">
                 <div class="card" style="margin: 10px;" id="card">
                     <div class="card-image">
                         <figure class="image is-1by1">
@@ -76,8 +76,9 @@
                         </p>
                     </div>
                     <footer class="card-footer">
-                        <button class="button card-footer-item dogBtn" id="dog-button" style="background-color: #FF8989" {{#unless available}}disabled
-                            style="background: #c7c4c4;" {{/unless}} data-name="{{name}}" data-dogid="{{id}}">Walk
+                        <button class="button card-footer-item dogBtn" id="dog-button" style="background-color: #FF8989"
+                            {{#unless available}}disabled style="background: #c7c4c4;" {{/unless}} data-name="{{name}}"
+                            data-dogid="{{id}}">Walk
                             {{name}}!</button>
                     </footer>
                 </div>
@@ -93,23 +94,25 @@
                         alt="sign up dog image">
                 </div>
                 <header class="modal-card-head">
-                    <p class="modal-card-title">Would you like to walk <span id="modal-dog-name"></span>?</p>
+                    <p class="modal-card-title" id= "modal-headline">Would you like to walk <span id="modal-dog-name"></span>?</p>
                     <button class="delete" id="closeBtn" aria-label="close"></button>
                 </header>
                 <section class="modal-card-body has-text-dark">
-                    We're <u>so</u> excited for your interest! 
-                <br>
-                <br>
-                Upon signing up you will receive an
-                e-mail confirmation with address and phone number to our shelter. Please give us a call to set up a day
-                and time for your BarkMatch! 
-                <br>
-                You will have a <b>two(2) hour</b> time frame to spend with your furfriend. 
-                <br>
-                <br>
-                For safety
-                purposes, we will make a photocopy of your photo ID and take your credit/debit card information. Please have
-                those ready to present upon arrival.
+                    We're <u>so</u> excited for your interest!
+                    <br>
+                    <br>
+                    Upon signing up you will receive an
+                    e-mail confirmation with address and phone number to our shelter. Please give us a call to set up a
+                    day
+                    and time for your BarkMatch!
+                    <br>
+                    You will have a <b>two(2) hour</b> time frame to spend with your furfriend.
+                    <br>
+                    <br>
+                    For safety
+                    purposes, we will make a photocopy of your photo ID and take your credit/debit card information.
+                    Please have
+                    those ready to present upon arrival.
                 </section>
                 <footer class="modal-card-foot">
                     <button class="button is-success" id="signUpBtn">Sign Up</button>

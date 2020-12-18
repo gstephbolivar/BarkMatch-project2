@@ -8,12 +8,12 @@
 
         <!-- ADD DOG -->
         <div>
-            <button id="addBtn" class="button is-large is-white">Add a Dog</button>
+            <button id="addBtn" class="button is-large is-white" style="margin-bottom: 25px;">Add a Dog</button>
         </div>
         <!-- DOGALOG -->
         <div class="columns is-centered is-multiline">
             {{#each dogs}}
-            <div class='column is-4'>
+            <div class='column is-4' id="column">
                 <div class="card" style="margin: 10px;" id="card">
                         <div class="card-image" id="card-image">
                             <figure class="image is-1by1">
@@ -61,11 +61,11 @@
     <div class="modal-card" id="deleteModalCard">
         <div id="delete-dog-modal"><img src="/assets/images/headlines/deleteModalDog.svg" alt="delete dog image"></div>
         <header class="modal-card-head">
-            <p class="modal-card-title">Great news! Did <span id="modal-dog-name"></span> get adopted?</p>
+            <p class="modal-card-title" id= "modal-headline">Great news! Did <span id="modal-dog-name"></span> get adopted?</p>
             <button class="delete" id="closeBtn" aria-label="close"></button>
         </header>
         <footer class="modal-card-foot">
-            <button class="button is-success" id="yesBtn" data-id="">Yes!</button>
+            <button class="button is-success" id="yesBtn" data-id="">Yes!</button>å
             <button class="button" id="noBtn" data-bulma-modal="close">Not yet.</button>
         </footer>
     </div>

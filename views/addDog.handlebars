@@ -1,5 +1,5 @@
 {{!-- BULMA ADD DOG --}}
-<section class="section" style="margin-top: 50px;">
+<section class="section is-mobile" style="margin-top: 50px;">
   <form class="create-form">
     <div class="container has-text-centered">
       <div id="add-dog-headline"><img src="/assets/images/headlines/addDogHeadline.svg" alt="add dog headline">
@@ -60,9 +60,9 @@
             </div>
           </div>
 
-          <div class="dropdown" style="margin-bottom: 10px; padding: 10px;">
+          {{!-- <div class="dropdown" style="margin-bottom: 10px; padding: 10px;"> --}}
 
-            <div class="field" id="gender" style="padding: 10px;">
+            <div class="field is-inline-block" id="gender" style="padding: 10px;">
               <label class="label" for="gender">Gender</label>
               <div class="control">
                 <div class="select">
@@ -75,7 +75,7 @@
             </div>
 
 
-            <div class="field" id="size" style="padding: 10px;">
+            <div class="field is-inline-block" id="size" style="padding: 10px;">
               <label class="label" for="size">Size</label>
               <div class="control">
                 <div class="select">
@@ -88,7 +88,7 @@
               </div>
             </div>
 
-            <div class="field" id="energy" style="padding: 10px;">
+            <div class="field is-inline-block" id="energy" style="padding: 10px;">
               <label class="label">Energy Level</label>
               <div class="control">
                 <div class="select">
@@ -100,11 +100,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          {{!-- </div> --}}
 
-          <div class="field is-grouped is-grouped-centered" style="margin-bottom: 20px;">
+          <div class="field is-grouped is-grouped-centered" style="margin-top: 20px; margin-bottom: 20px;" id="button-group-add-edit">
             <p class="control">
-              <button type="submit" class="button is-info is-medium">
+              <button type="submit" class="button is-info is-medium" id="submitBtn">
                 Submit
               </button>
             </p>

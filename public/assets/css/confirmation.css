@@ -1,6 +1,6 @@
 
-.columns {
-    margin-top: -60px;
+.confirmationCol {
+    margin-top: 10px;
 }
 
 /* barkmatch logo */
@@ -32,10 +32,10 @@ h1 {
     font-weight: bold;
 
 }
-
-.columns {
+/* 
+.confirmationCol {
     margin-top: 5%;
-}
+} */
 
 #grouped-buttons {
     margin: auto;
@@ -58,9 +58,9 @@ h1 {
 /* mobile responsive */
 @media only screen and (max-width: 768px) {
 
-    .column {
+    /* .confirmationCol {
         margin: 10px;
-    }
+    }  */
 
     #confirmation-logo {
       width: 90%;
@@ -83,9 +83,9 @@ h1 {
 }
 
 @media only screen and (max-width: 1200px) {
-    .column {
+    /* .confirmationCol {
         margin: 50px;
-    }
+    } */
 
 
 }

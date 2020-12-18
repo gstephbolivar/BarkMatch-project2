@@ -11,11 +11,8 @@
   margin-top: 20px;
 }
 
-
-
 #mobile-image {
-    visibility: hidden;
-    width: 1%;
+    display: none;
 }
 
 #desktop-image {
@@ -31,19 +28,29 @@
   #index-content {
     margin-right: 2%;
     margin-left: 2%;
+    margin-top: -40px;
+  }
+
+  footer {
+    font-size: 10px;
+  }
+
+  #index-para {
+    font-size: 15px;
   }
 
   #desktop-image {
-    visibility: hidden;
-    width: 1%; 
+    display: none;
 }
 
 #mobile-image {
     visibility: visible;
+    padding-top: 40px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
+    
 }
 
 
