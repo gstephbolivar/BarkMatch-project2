@@ -2,25 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   /* SIGN UP MODAL JAVASCRIPT */
   console.log("JS is linked");
 
-  $(".create-form").on("submit", function(event){
-  event.preventDefault();
-
-  console.log(this);
-  const formData = new FormData(this);
-  let gender = $("#filter-gender").val();
-  let size = $("#filter-size").val();
-  let energy = $("#filter-energy_level").val();
-
-  $.ajax({
-    type: "GET",
-    url: `/volunteers/dogalog/${gender}/${size}/${energy}`,
-  }).then((data) => {
-    window.location.href = `/volunteers/dogalog/${gender}/${size}/${energy}`
-  }).catch(err => {
-    console.log(err);
-  });
-  })
-
   class BulmaModal {
     constructor(selector) {
       this.elem = document.querySelector(selector);
@@ -99,3 +80,88 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("closed");
   });
 });
+
+$(document).ready(function(){
+
+  $('#gender-select, #size-select, #energy-select').on('change', () => {
+    
+      const query = {};
+      let url= "/api/dogs/filter?";
+
+      const gender = $('#gender-select option:checked').val();
+      const size = $('#size-select option:checked').val();
+      const energy = $('#energy-select option:checked').val();
+
+      if(gender){
+        url += `gender=${gender}`;
+      }
+     
+      if(size){
+        url += `&size=${size}`;
+      }
+
+      if(energy){
+        url += `&energy_level=${energy}`;
+      }
+
+      filterDogs(url);
+
+  })
+
+  $('#clearBtn').on('click', () => {
+     $('#gender-select').val('');
+     $('#size-select').val('');
+     $('#energy-select').val('');
+
+     filterDogs('/api/dogs/filter');
+  })
+
+  function filterDogs(url){
+    $.ajax({
+      type: 'GET',
+      url: url
+    }).then((data) => {
+        $('.dog-container').empty();
+
+        data.forEach(dog => {
+          $('.dog-container').append(createDogCard(dog));
+        })
+    })
+  }
+
+  function createDogCard(dog){
+    const html = `<div class='column is-4'>
+    <div class="card" style="margin: 10px;">
+        <div class="card-image">
+            <figure class="image is-1by1">
+                <img src="${dog.img_path}" alt="Picture of ${dog.name}" />
+            </figure>
+        </div>
+        <div class="card-content is-centered">
+            <div class="media">
+                <div class="media-content">
+                    <p class="title is-4 has-text-dark" id="dog-name">${dog.name}</p>
+                    <p class="subtitle is-6 has-text-dark">Age: ${dog.age}</p>
+                    <p class="subtitle is-6 has-text-dark">Breed: ${dog.breed}</p>
+                    <p class="subtitle is-6 has-text-dark">Gender: ${dog.gender}</p>
+                    <p class="subtitle is-6 has-text-dark">Size: ${dog.size}</p>
+                    <p class="subtitle is-6 has-text-dark">Energy Level: ${dog.energy_level}</p>
+                </div>
+            </div>
+            <div class="content">
+            ${dog.bio}
+                <br />
+            </div>
+            <p class="subtitle is-6 has-text-dark">${dog.available ? 'Available' : 'Unavailable'}</p>
+        </div>
+        <footer class="card-footer">
+            <button class="button card-footer-item is-success is-light dogBtn" ${dog.available ? "" : 'disabled style="background: #c7c4c4;' } data-name="${dog.name}" data-dogid="${dog.id}">Walk
+                ${dog.name}!</button>
+        </footer>
+    </div>
+</div>`;
+
+return html;
+  }
+})
+
