@@ -27,6 +27,14 @@
 #nav-text, .icon {
     color: #292F36;
 }
+
+/* BODY */
+
+html {
+    background-color: hsl(171, 100%, 41%);
+}
+
+
 /* Doglist  */
 
 #shelter-logo {
@@ -90,14 +98,29 @@ p {
     flex: 1;
   }
 
-  .footer {
-      background-color: hsl(171, 100%, 41%);
-  }
-
 p {
     color: #292F36;
     font-weight: bold;
 }
+
+body {
+    margin-bottom: 40px;
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 20px 0;
+    background-color: hsl(171, 100%, 41%);
+    position: fixed;
+    margin-top: auto;
+    left: 0;
+    bottom: 0;
+    clear: both;
+    width: 100%;
+    text-align: center;
+    line-height: 1em;
+  } 
 
 
 @media only screen and (max-width: 768px) {
