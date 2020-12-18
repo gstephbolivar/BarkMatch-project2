@@ -1,41 +1,41 @@
 <!-- Hero content: will be in the middle -->
-<div class="hero-body">
+<section class="section">
     <div class="container has-text-centered">
         <!-- Shelter Logo -->
-        <img src="/assets/images/ahs.svg" alt="Logo" style="margin-top: -150%;">
+        <img src="/assets/images/ahs.svg" alt="Logo" style="margin-top: 50px;" id="shelter-logo">
+
+        <h4 class="subtitle is-4">Add any dogs within the shelter to be available for walkies!</h4>
+
         <!-- ADD DOG -->
         <div>
             <button id="addBtn" class="button is-large is-white">Add a Dog</button>
         </div>
-        <br />
-        <br />
-        <br />
         <!-- DOGALOG -->
         <div class="columns is-centered is-multiline">
             {{#each dogs}}
             <div class='column is-4'>
-                <div class="card" style="margin: 10px;">
-                    <div class="card-content is-centered">
-                        <div class="card-image">
+                <div class="card" style="margin: 10px;" id="card">
+                        <div class="card-image" id="card-image">
                             <figure class="image is-1by1">
                                 <img src="{{img_path}}" alt="Picture of {{name}}" />
                             </figure>
                         </div>
+                        <div class="card-content is-centered" id="bottom-card">
                         <div class="media">
                             <div class="media-content">
-                                <p class="title is-4 has-text-dark" id="dog-name">{{name}}</p>
-                                <p class="subtitle is-6 has-text-dark">Age: {{age}} years</p>
-                                <p class="subtitle is-6 has-text-dark">Breed: {{breed}}</p>
-                                <p class="subtitle is-6 has-text-dark">Gender: {{gender}}</p>
-                                <p class="subtitle is-6 has-text-dark">Size: {{size}}</p>
-                                <p class="subtitle is-6 has-text-dark">Energy Level: {{energy_level}}</p>
+                                <p class="title is-3 has-text-dark" id="dog-name">{{name}}</p>
+                                <p class="subtitle is-6 has-text-dark">{{age}} years</p>
+                                <p class="subtitle is-6 has-text-dark">{{breed}}</p>
+                                <p class="subtitle is-6 has-text-dark">{{gender}}</p>
+                                <p class="subtitle is-6 has-text-dark">{{size}}</p>
+                                <p class="subtitle is-6 has-text-dark">{{energy_level}} Energy</p>
                             </div>
                         </div>
-                        <div class="content">
+                        <div class="content subtitle is-6 has-text-dark">
                             {{bio}}
-                            <br />
+
                         </div>
-                        <p class="subtitle is-6 has-text-dark">
+                        <p class="subtitle is-6 has-text-dark">Currently 
                             {{#if available}}
                             Available
                             {{else}}
@@ -50,22 +50,10 @@
                         {{#if available}}{{else}}<a id="availableBtn" class="card-footer-item availableBtn"
                             name="{{available}}" data-id="{{id}}">Available</a>{{/if}}
                     </footer>
-                </div>
-            </div>
-            {{/each}}
+       </div>
         </div>
+        {{/each}}
     </div>
-</div>
-{{!--
-<div class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-        <p>Great news! Did {{name}} get adopted?</p>
-        <button id="yesBtn">Yes</button>
-        <button id="noBtn">No</button>
-    </div>
-    <button class="modal-close is-large" aria-label="close"></button>
-</div> --}}
 
 <!-- DELETE MODAL -->
 <div class="modal" id="deleteModal">
@@ -81,6 +69,17 @@
             <button class="button" id="noBtn" data-bulma-modal="close">Not yet.</button>
         </footer>
     </div>
-</div>
+
+</section>
+
+
+<figure class="image" id="desktop-image">
+    <img id="dogs-at-bottom" src="/assets/images/icons/dogLineUp_dashboard.svg" alt="Logo"></img>
+</figure>
+
+<figure class="image" id="mobile-image">
+    <img id="dogs-at-bottom" src="/assets/images/icons/dogLineUp_mobile_dashboard.svg" alt="Logo"></img>
+</figure>
+
 
 <script type="text/javascript" src="/assets/js/dashboard.js"></script>

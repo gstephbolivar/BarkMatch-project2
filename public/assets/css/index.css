@@ -6,6 +6,13 @@
   margin-left: 15%;
 }
 
+
+#index-para, #searchDogs {
+  margin-top: 20px;
+}
+
+
+
 #mobile-image {
     visibility: hidden;
     width: 1%;
