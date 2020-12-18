@@ -1,5 +1,5 @@
 {{!-- BULMA ADD DOG --}}
-<section class="section">
+<section class="section" style="margin-top: 50px;">
   <form class="create-form">
     <div class="container has-text-centered">
       <div id="add-dog-headline"><img src="/assets/images/headlines/addDogHeadline.svg" alt="add dog headline">
@@ -13,7 +13,8 @@
             <label class="file-label">
               <img id="profile-pic" src="/assets/images/img/dogph.png" alt="dog picture"
                 style="width:40px;height:40px; margin-right:10px;">
-              <input class="file-input" type="file" name="img_path" id="img_path" accept=".jpeg,.JPEG,.png,.PNG,.jpg,.JPG" />
+              <input class="file-input" type="file" name="img_path" id="img_path"
+                accept=".jpeg,.JPEG,.png,.PNG,.jpg,.JPG" />
               <span class="file-cta">
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>
@@ -29,7 +30,7 @@
           <div class="field" id="name">
             <label class="label" for="dog">Name</label>
             <div class="control">
-              <input class="input" type="text" id="dog-name" name="name" placeholder="Barkley" minlength="1" required/>
+              <input class="input" type="text" id="dog-name" name="name" placeholder="Barkley" minlength="1" required />
             </div>
           </div>
           <div class="dropdown" style="margin-bottom: 20px;">
@@ -37,14 +38,15 @@
             <div class="field" id="age" style="margin-left: 20px; margin-right: 20px;">
               <label class="label" for="dog">Age</label>
               <div class="control">
-                <input class="input" type="number" id="dog-age" name="age" placeholder="3" minlength="1" required/>
+                <input class="input" type="number" id="dog-age" name="age" placeholder="3" minlength="1" required />
               </div>
             </div>
 
             <div class="field" id="breed" style="margin-left: 20px; margin-right: 20px;">
               <label class="label" for="dog">Breed</label>
               <div class="control">
-                <input class="input" type="text" id="dog-breed" name="breed" placeholder="Cocker Spaniel" minlength="1" required/>
+                <input class="input" type="text" id="dog-breed" name="breed" placeholder="Cocker Spaniel" minlength="1"
+                  required />
               </div>
             </div>
 
@@ -63,16 +65,15 @@
             <div class="field" id="gender" style="padding: 10px;">
               <label class="label" for="gender">Gender</label>
               <div class="control">
-                <label class="radio">
-                  <input type="radio" name="gender" value="Male" data-name="Male" checked />
-                  Male
-                </label>
-                <label class="radio">
-                  <input type="radio" name="gender" value="Female" data-name="Female" />
-                  Female
-                </label>
+                <div class="select">
+                  <select name="gender">
+                    <option  value="Male" data-name="Male">Male</option>
+                    <option  value="Female" data-name="Female" selected>Female</option>
+                  </select>
+                </div>
               </div>
             </div>
+
 
             <div class="field" id="size" style="padding: 10px;">
               <label class="label" for="size">Size</label>
