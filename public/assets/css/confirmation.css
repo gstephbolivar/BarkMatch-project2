@@ -1,7 +1,7 @@
 /* fonts */
 @font-face {
     font-family: DottiesVanilla-ExtraBold;
-    src: url(/assets/images/fonts/DottiesVanilla-ExtraBold.otf);
+    src: url(/assets/images/fonts/DottiesVanilla-ExtraBold.woff);
   }
 
 .columns {
