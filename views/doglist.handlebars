@@ -47,17 +47,8 @@
             </button>
         </p>
 
-
-            <p class="control" id="filterBtn">
-                <button type="submit" class="button is-info is-medium">
-                    Submit
-                </button>
-            </p>
-        </form>
-
-
         <!-- DOGALOG -->
-        <div class="columns is-centered is-multiline">
+        <div class="columns is-centered is-multiline dog-container">
             {{#each dogs}}
             <div class='column is-4'>
                 <div class="card" style="margin: 10px;" id="card">
@@ -69,12 +60,12 @@
                     <div class="card-content is-centered" id="bottom-card">
                         <div class="media">
                             <div class="media-content">
-                                <p class="title is-3 has-text-dark" id="dog-name">{{name}}</p>
-                                <p class="subtitle is-6 has-text-dark">{{age}} years</p>
+                                <p class="title is-3 has-text-dark" id="dog-name">My name is {{name}}</p>
+                                <p class="subtitle is-6 has-text-dark">I'm {{age}} years old</p>
+                                <p class="subtitle is-6 has-text-dark">I'm a {{size}} dog</p>
+                                <p class="subtitle is-6 has-text-dark">With a {{energy_level}} energy level</p>
                                 <p class="subtitle is-6 has-text-dark">{{breed}}</p>
                                 <p class="subtitle is-6 has-text-dark">{{gender}}</p>
-                                <p class="subtitle is-6 has-text-dark">{{size}}</p>
-                                <p class="subtitle is-6 has-text-dark">{{energy_level}} Energy Level</p>
                             </div>
                         </div>
                         <div class="content">

@@ -1,12 +1,8 @@
-/* fonts */
-@font-face {
-    font-family: DottiesVanilla-ExtraBold;
-    src: url(/assets/images/fonts/DottiesVanilla-ExtraBold.woff);
-  }
 
 .columns {
     margin-top: -60px;
 }
+
 /* barkmatch logo */
 #confirmation-logo {
     display: block;
@@ -33,18 +29,13 @@
 }
 
 h1 {
-    font-family: DottiesVanilla-ExtraBold;
+    font-weight: bold;
 
 }
-
-
-
 
 .columns {
     margin-top: 5%;
 }
-
-
 
 #grouped-buttons {
     margin: auto;
@@ -67,12 +58,17 @@ h1 {
 /* mobile responsive */
 @media only screen and (max-width: 768px) {
 
+    .column {
+        margin: 10px;
+    }
+
     #confirmation-logo {
       width: 90%;
     }
 
     #dog-image {
-       top: 10% 
+       top: 10%; 
+       margin: auto;
     }
 
     #mobile-image {
@@ -83,5 +79,13 @@ h1 {
         padding-left: 30px !important;
         padding-right: 30px !important;
     }
+
+}
+
+@media only screen and (max-width: 1200px) {
+    .column {
+        margin: 50px;
+    }
+
 
 }
