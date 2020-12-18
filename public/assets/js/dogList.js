@@ -140,12 +140,12 @@ $(document).ready(function(){
         <div class="card-content is-centered" id="bottom-card">
             <div class="media">
                 <div class="media-content">
-                    <p class="title is-3 has-text-dark" id="dog-name">${dog.name}</p>
-                    <p class="subtitle is-6 has-text-dark">${dog.age} years</p>
+                    <p class="title is-3 has-text-dark" id="dog-name">My name is ${dog.name}</p>
+                    <p class="subtitle is-6 has-text-dark">I'm  ${dog.age} years old</p>
+                    <p class="subtitle is-6 has-text-dark">I'm a ${dog.size} dog</p>
+                    <p class="subtitle is-6 has-text-dark">With a ${dog.energy_level} energy level</p>
                     <p class="subtitle is-6 has-text-dark">${dog.breed}</p>
                     <p class="subtitle is-6 has-text-dark">${dog.gender}</p>
-                    <p class="subtitle is-6 has-text-dark">${dog.size}</p>
-                    <p class="subtitle is-6 has-text-dark">${dog.energy_level} Energy Level</p>
                 </div>
             </div>
             <div class="content">
