@@ -26,45 +26,33 @@
                     <div class="navbar-brand">
                         <a class="navbar-item"> <img src="/assets/images/logo.svg" alt="Logo" style="width: 152px"> </a>
                     </div>
-                                                    {{!-- Logged in as Admin --}}
-                             <div class="navbar-item">
-                                <span class="icon">
-                                   <i class="fas fa-user-check" style="padding-right: 10px;"></i>
-                                </span>
-                                <strong id="nav-text"><span style="display:none">Logged in as <span id="username"></span></span></strong>
-                            </div>
-
-                             {{!-- LOG OUT --}}
-                             <a class="navbar-item" href="/logout" id="logout" style="display:none">
-                                <span class="icon">
-                                   <i class="fas fa-sign-out-alt" style="padding-right: 5px;"></i>
-                                </span>
-                                <strong id="nav-text">Log Out</strong>
-                            </a>
-                            
                      <div id="navbarBasicExample" class="navbar-menu">
                         <div class="navbar-end">
-                            <div class="authentication-container"></div>
-    
-
-                            {{!-- Dogalog --}}
                             <a class="navbar-item">
                                 <span class="icon">
-                                    <i class="fas fa-paw" style="padding-right: 10px;"></i>
+                                    <i class="fas fa-paw"></i>
                                 </span>
                                 <span id="nav-text"> <strong>Dogalog</strong></span>
                             </a>
-                            {{!-- Shelter Login --}}
+
                             <a class="navbar-item">
                                 <span class="icon">
-                                   <i class="fas fa-dog" style="padding-right: 10px;"></i>
+                                   <i class="fas fa-dog"></i>
                                 </span>
                                 <strong id="nav-text">Shelter Login</strong>
                             </a>
                         </div>
                     </div>
 
-        
+                    <div class="authenticaton-container">
+                        <a href="/logout" id="logout" style="display:none">Log Out</a>
+                    </div>
+                    <div>
+                        <span style="display:none">Logged in as <span id="username"></span></span>
+                    </div>
+
+
+
                 </div>
             </nav>
         </div>
