@@ -80,6 +80,13 @@ body {
   margin-bottom: 40px;
 }
 
+
+/* index button to front */
+
+#searchDogs {
+  z-index: 999 !important;
+}
+
 /* FOOTER */
 
 .footer {
