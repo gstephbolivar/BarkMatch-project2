@@ -138,14 +138,23 @@ router.put("/api/dogs/:id", (req, res) => {
                 if (req.files && req.files.img_path) {
 
                     const picture = req.files.img_path;
+                    const imagePath = `/assets/images/dogs/Dog-${req.params.id}.jpg`;
 
-                    picture.mv(`public/assets/images/dogs/Dog-${req.params.id}.jpg`, function (err) {
+                    picture.mv(`public` + imagePath, function (err) {
                         if (err) {
                             console.log(err);
                             return res.status(500).json(err);
                         }
 
-                        res.status(200).end();    
+                        db.Dogs.update({img_path: imagePath}, {where: {id: req.params.id}})
+                        .then(() => {
+                            res.status(200).end();    
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            res.status(500).end();
+                        })
+                       
 
                     });
                 } else {
