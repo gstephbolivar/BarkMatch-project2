@@ -1,3 +1,4 @@
+// Sign up page for volunteer
 $(function () {
   $(".create-form").on("submit", function (event) {
     event.preventDefault();
@@ -6,8 +7,6 @@ $(function () {
     let email = $("#volunteer-email").val().trim();
     let phone = $("#volunteer-number").val().trim();
     let id = $("#id").val();
-
-    console.log(id);
 
     $.ajax({
       type: "POST",
@@ -20,15 +19,10 @@ $(function () {
       },
     })
       .then(function (data) {
-        console.log(data);
         window.location.href = `/volunteers/confirmation/${data.volunteerId}/${data.dog.id}`;
-        // console.log(data);
-        console.log("Inputted volunteer information");
       })
       .catch((err) => {
         console.log(err);
       });
   });
-
-
 });

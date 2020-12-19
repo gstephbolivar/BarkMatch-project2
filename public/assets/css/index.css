@@ -1,3 +1,4 @@
+/* Styling for home page  */
 #index-page {
   height: 100%;
 }
@@ -6,21 +7,21 @@
   margin-left: 15%;
 }
 
-
-#index-para, #searchDogs {
+#index-para,
+#searchDogs {
   margin-top: 20px;
 }
 
 #mobile-image {
-    display: none;
+  display: none;
 }
 
 #desktop-image {
-    visibility: visible;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
+  visibility: visible;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
 }
 
 /* mobile responsive */
@@ -41,17 +42,14 @@
 
   #desktop-image {
     display: none;
-}
+  }
 
-#mobile-image {
+  #mobile-image {
     visibility: visible;
     padding-top: 40px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 90%;
-    
-}
-
-
+  }
 }

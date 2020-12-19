@@ -1,3 +1,4 @@
+/* Styling for our dogalog list */
 #doglist-logo {
   margin-right: 10%;
   margin-left: 10%;
@@ -23,10 +24,10 @@
   justify-content: center;
 }
 
-#filterBtn, #clearBtn {
+#filterBtn,
+#clearBtn {
   margin: 10px;
 }
-
 
 #sign-up-dog-modal {
   display: block;
@@ -44,10 +45,9 @@
 
 /* mobile responsive */
 @media only screen and (max-width: 768px) {
-/* 
+  /* 
 #dropdown-filters {
   margin-left: 30px;
   margin-right: 30px;
 } */
-
 }

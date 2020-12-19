@@ -1,3 +1,4 @@
+// Volunteer table for db
 module.exports = function (sequelize, DataTypes) {
   const Volunteer = sequelize.define("Volunteer", {
     name: {

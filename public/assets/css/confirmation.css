@@ -1,11 +1,11 @@
-
+/* Confirmation page styling */
 .confirmationCol {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* barkmatch logo */
 #confirmation-logo {
-    display: block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
@@ -14,23 +14,22 @@
 
 /* respective dog image */
 #dog-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 350px;
-    border: 10px solid #ffffff;
-    border-radius: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  border: 10px solid #ffffff;
+  border-radius: 5px;
 }
 
 /* confirmation line, address, phone etc */
 #information {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 h1 {
-    font-weight: bold;
-
+  font-weight: bold;
 }
 /* 
 .confirmationCol {
@@ -38,54 +37,49 @@ h1 {
 } */
 
 #grouped-buttons {
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #shelter-info {
-    margin: 20px;
+  margin: 20px;
 }
 
 #desktop-image {
-    margin-top: 30px;
-    width: 60%;
+  margin-top: 30px;
+  width: 60%;
 }
-    
-
 
 /* mobile responsive */
 @media only screen and (max-width: 768px) {
-
-    /* .confirmationCol {
+  /* .confirmationCol {
         margin: 10px;
     }  */
 
-    #confirmation-logo {
-      width: 90%;
-    }
+  #confirmation-logo {
+    width: 90%;
+  }
 
-    #dog-image {
-       top: 10%; 
-       margin: auto;
-    }
+  #dog-image {
+    top: 10%;
+    margin: auto;
+  }
 
-    #mobile-image {
-        margin-top: -60px;
-    }
+  #mobile-image {
+    margin-top: -60px;
+  }
 
-    h1, p {
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-    }
-
+  h1,
+  p {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
-    /* .confirmationCol {
+  /* .confirmationCol {
         margin: 50px;
     } */
-
-
 }
