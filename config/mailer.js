@@ -1,9 +1,11 @@
 var nodemailer = require("nodemailer");
 var path = require("path");
 
-module.exports = function (dog, volunteer) {
-  const template = `<h1>Hello, ${volunteer.name}!</h1></br></br>Thank you for using BarkMatch. This is your confirmation for signing up to walk ${dog.name}.</br>
-    If you have any questions of concerns please contact us.<br><br><br><img src="cid:adogpic" style="width:200px;height:200px;display:block;margin-left:auto;margin-right:auto"/>`;
+module.exports = function(dog, volunteer){
+    let template = `<h1>Hello, ${volunteer.name}!</h1></br></br>Thank you for using BarkMatch. This is your confirmation for signing up to walk ${dog.name}.<br>`;
+    template += `If you have any questions of concerns please contact us.<br><br><br>`;
+    template += `<img src="cid:adogpic" style="width:200px;height:200px;display:block;margin-left:auto;margin-right:auto"/>`
+    template += `<br><br>981 Howell Mill Road NW, Atlanta, GA 30318 | (404) 875-5331`;
 
   //Create transport with service to use for email
   var transporter = nodemailer.createTransport({
