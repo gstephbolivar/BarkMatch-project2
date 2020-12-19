@@ -1,35 +1,8 @@
-/* NAV BAR */
-/* .navbar-item {
-  display: flex;
-}
-
-.navbar,
-.navbar-menu,
-.navbar-start,
-.navbar-end {
-  align-items: stretch;
-  display: flex;
-  padding: 0;
-}
-
-.navbar-menu {
-  flex-grow: 1;
-  flex-shrink: 0;
-}
-.navbar-start {
-  justify-content: flex-start;
-  margin-right: auto;
-}
-.navbar-end {
-  justify-content: flex-end;
-  margin-left: auto;
-}
-*/
-
+/* Nav bar */
 #nav-text,
 .icon {
   color: #292f36;
-} 
+}
 
 /* BODY */
 
@@ -107,6 +80,13 @@ body {
   margin-bottom: 40px;
 }
 
+
+/* index button to front */
+
+#searchDogs {
+  z-index: 999 !important;
+}
+
 /* FOOTER */
 
 .footer {
@@ -142,7 +122,7 @@ body {
   }
 
   .card-footer {
-      font-size: 15px;
+    font-size: 15px;
   }
 
   /* MODALS */
@@ -161,8 +141,6 @@ body {
     margin-right: -25px;
   }
 }
-
-
 
 /* CRAZY NAV BAR CODE */
 /* We don't need checkbox to be displayed in order for it to work */
@@ -199,7 +177,7 @@ body {
 /* For dropdown functionality */
 
 /* Same reason as for checkbox */
-.has-dropdown input[type=checkbox] {
+.has-dropdown input[type="checkbox"] {
   display: none;
 }
 /* Hide by default */
@@ -210,5 +188,5 @@ body {
 #dropdown1:checked ~ #dropdown-content1,
 #dropdown2:checked ~ #dropdown-content2,
 #dropdown3:checked ~ #dropdown-content3 {
-    display: block;
+  display: block;
 }

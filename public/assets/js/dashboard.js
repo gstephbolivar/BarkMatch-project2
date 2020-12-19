@@ -1,36 +1,33 @@
+$("#yesBtn").on("click", function () {
+  $.ajax({
+    url: "/api/dogs/" + $(this).data("id"),
+    type: "DELETE",
+  }).then(() => {
+    window.location.reload();
+  });
+});
 
-$('#yesBtn').on('click', function(){
-
-        $.ajax({
-            url: "/api/dogs/" + $(this).data('id'),
-            type: "DELETE",
-        }).then(() => {
-            window.location.reload();
-        })
-  })
-
-$(".availableBtn").on('click', function() {
-  if (this.name === "false"){
-    let dogID = $(this).data('id');
+$(".availableBtn").on("click", function () {
+  if (this.name === "false") {
+    let dogID = $(this).data("id");
     let query = `/api/dogs/${dogID}`;
-    
+
     $.ajax({
       type: "PUT",
       url: query,
       data: {
         available: true,
         flag: true,
-      }
+      },
     }).then((data) => {
       window.location.reload();
-    })
+    });
   }
-})
+});
 
+// Modal
 document.addEventListener("DOMContentLoaded", function () {
   /* SIGN UP MODAL JAVASCRIPT */
-  console.log("JS is linked");
-
   class BulmaModal {
     constructor(selector) {
       this.elem = document.querySelector(selector);
@@ -55,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
       var that = this;
       modalClose.forEach(function (e) {
         e.addEventListener("click", function () {
-
           var event = new Event("modal:close");
 
           that.elem.dispatchEvent(event);
@@ -80,28 +76,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  var deleteBtn = document.querySelector(".deleteBtn");
   var closeBtn = document.querySelector("#closeBtn");
   var addBtn = document.querySelector("#addBtn");
   var noBtn = document.querySelector("#noBtn");
   var yesBtn = document.querySelector("#yesBtn");
   var mdl = new BulmaModal("#deleteModal");
 
+  // Add a dog to dogalog
   addBtn.addEventListener("click", function () {
     window.location.href = "/dashboard/add";
   });
 
-  document.addEventListener('click', function(event){
-    if(event.target.classList.contains("deleteBtn")){
-        $('#yesBtn').attr("data-id", event.target.dataset.id);
-        $("#modal-dog-name").text(event.target.dataset.dogname);
-        mdl.show();
+  // Delete a dog
+  document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("deleteBtn")) {
+      $("#yesBtn").attr("data-id", event.target.dataset.id);
+      $("#modal-dog-name").text(event.target.dataset.dogname);
+      mdl.show();
     }
   });
-
+  // if yes dog is deleted
   yesBtn.addEventListener("click", function () {
-    const btn = $(this);
-
     $.ajax({
       url: "/api/dogs/" + $deleteBtn.data("id"),
       type: "DELETE",
@@ -109,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.reload();
     });
   });
-
+  // if close, go back to dashboard
   closeBtn.addEventListener("click", function () {
     mdl.close();
   });

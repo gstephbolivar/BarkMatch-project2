@@ -5,11 +5,11 @@ $(document).ready(() => {
   const passwordInput = $("input#password-input");
 
   // When the form is submitted, we validate there's an email and password entered
-  loginForm.on("submit", event => {
+  loginForm.on("submit", (event) => {
     event.preventDefault();
     const userData = {
       username: username.val().trim(),
-      password: passwordInput.val().trim()
+      password: passwordInput.val().trim(),
     };
 
     if (!userData.username || !userData.password) {
@@ -26,20 +26,19 @@ $(document).ready(() => {
   function loginUser(username, password) {
     $.post("/api/login", {
       username: username,
-      password: password
+      password: password,
     })
       .then(() => {
-          window.location.replace("/dashboard");
-       
+        window.location.replace("/dashboard");
+
         // If there's an error, log the error
       })
-      .catch(err => {
-        if(err.status === 401){
-          $('#error').show();
-        }else{
+      .catch((err) => {
+        if (err.status === 401) {
+          $("#error").show();
+        } else {
           console.log(err);
         }
-        
       });
   }
 });
