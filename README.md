@@ -14,7 +14,12 @@
   BarkMatch is a web based application that allows dog shelters to upload dogs to a database, allowing users to search for a dog and then volunteer to take them for a walk. 
 
   ## **Demo**
-  ![home page](public/assets/images/readme/BarkMatch.png)
+  #### **Desktop/Laptop**
+  ![home page](public/assets/images/readme/BarkMatchDesk.gif)
+
+  #### **Mobile**
+  ![home page](public/assets/images/readme/BarkMatchMobile.gif)
+
       
    ## **Contributors**
   * [Melanie Bostwick](https://github.com/mbostwick1)
