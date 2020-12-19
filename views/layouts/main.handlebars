@@ -23,53 +23,76 @@
 <body>
     <section class="hero is-primary is-large is-mobile">
         <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item" href="/"> <img src="/assets/images/logo.svg" alt="Logo" style="width: 152px"> </a>
-                    </div>
-                    <div class="authentication-container">
-                        {{!-- Logged in as Admin --}}
-                        <div class="navbar-item" style="padding-top: 13px;">
-                            <strong id="nav-text"><span style="display:none;"> <span class="icon">
-                                        <i class="fas fa-user-check" style=" padding-right: 10px;"></i>
-                                    </span> Logged in as <span id="username"></span></span></strong>
-                        </div>
-                    </div>
+ <nav
+      class="navbar is-primary"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <input type="checkbox" id="toggler" class="toggler" />
+      <!-- for toggling functionality. Should be at the same level as navbar-menu -->
+      <div class="navbar-brand">
+        <!-- left side of bulma navbar -->
+        <a class="navbar-item" href="/">
+          <img src="/assets/images/logo.svg" alt="Logo" style="width: 152px" />
+        </a>
+        <label
+          for="toggler"
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </label>
+      </div>
+      <!-- end of left side of bulma navbar -->
+      <div id="navbarBasicExample" class="navbar-menu">
+        <!-- dont shown on mobile -->
+        <div class="navbar-start">
+          <!-- left on big screen -->
+          <!-- a dropdown menu -->
+          <a class="navbar-item is-hoverable" href="/volunteers/dogalog">
+            <!-- begin dropdown box -->
+            <span class="icon">
+              <i class="fas fa-paw"></i>
+            </span>
+            <span id="nav-text"> <strong>Dogalog</strong></span>
+          </a>
 
-                    {{!-- LOG OUT --}}
-                    <a class="navbar-item" href="/logout" id="logout" style="display:none">
-                        <span class="icon">
-                            <i class="fas fa-sign-out-alt" style="padding-right: 5px;"></i>
-                        </span>
-                        <strong id="nav-text">Log Out</strong>
-                    </a>
+          <a class="navbar-item" href="/login">
+            <span class="icon">
+              <i class="fas fa-dog"></i>
+            </span>
+            <strong id="nav-text">Shelter Dashboard</strong>
+          </a>
 
-                    <div id="navbarBasicExample" class="navbar-menu">
-                        <div class="navbar-end">
+          <div class="navbar-item">
+            <strong id="nav-text"
+              ><span style="display: none">
+                <span class="icon">
+                  <i class="fas fa-user-check"></i>
+                </span>
+                Logged in as <span id="username"></span></span
+            ></strong>
+          </div>
 
-
-
-                            {{!-- Dogalog --}}
-                            <a class="navbar-item" href="/volunteers/dogalog">
-                                <span class="icon">
-                                    <i class="fas fa-paw" style="padding-right: 10px;"></i>
-                                </span>
-                                <span id="nav-text"> <strong>Dogalog</strong></span>
-                            </a>
-                            {{!-- Shelter Login --}}
-                            <a class="navbar-item" href="/login">
-                                <span class="icon">
-                                    <i class="fas fa-dog" style="padding-right: 10px;"></i>
-                                </span>
-                                <strong id="nav-text">Shelter Dashboard</strong>
-                            </a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </nav>
+          <a
+            class="navbar-item"
+            href="/logout"
+            id="logout"
+            style="display: none"
+          >
+            <span class="icon">
+              <i class="fas fa-sign-out-alt"></i>
+            </span>
+            <strong id="nav-text">Log Out</strong>
+          </a>
+        </div>
+      </div>
+    </nav>
         </div>
   
         {{{ body }}}
