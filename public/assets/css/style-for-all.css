@@ -1,31 +1,4 @@
-/* NAV BAR */
-/* .navbar-item {
-  display: flex;
-}
-
-.navbar,
-.navbar-menu,
-.navbar-start,
-.navbar-end {
-  align-items: stretch;
-  display: flex;
-  padding: 0;
-}
-
-.navbar-menu {
-  flex-grow: 1;
-  flex-shrink: 0;
-}
-.navbar-start {
-  justify-content: flex-start;
-  margin-right: auto;
-}
-.navbar-end {
-  justify-content: flex-end;
-  margin-left: auto;
-}
-*/
-
+/* Nav bar */
 #nav-text,
 .icon {
   color: #292f36;
@@ -105,6 +78,13 @@ p {
 
 body {
   margin-bottom: 40px;
+}
+
+
+/* index button to front */
+
+#searchDogs {
+  z-index: 999 !important;
 }
 
 /* FOOTER */
