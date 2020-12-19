@@ -1,6 +1,6 @@
+// Dogalog list
 document.addEventListener("DOMContentLoaded", function () {
   /* SIGN UP MODAL JAVASCRIPT */
-  console.log("JS is linked");
 
   class BulmaModal {
     constructor(selector) {
@@ -81,55 +81,51 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
+  $("#gender-select, #size-select, #energy-select").on("change", () => {
+    let url = "/api/dogs/filter?";
 
-  $('#gender-select, #size-select, #energy-select').on('change', () => {
-    
-      const query = {};
-      let url= "/api/dogs/filter?";
+    const gender = $("#gender-select option:checked").val();
+    const size = $("#size-select option:checked").val();
+    const energy = $("#energy-select option:checked").val();
 
-      const gender = $('#gender-select option:checked').val();
-      const size = $('#size-select option:checked').val();
-      const energy = $('#energy-select option:checked').val();
+    if (gender) {
+      url += `gender=${gender}`;
+    }
 
-      if(gender){
-        url += `gender=${gender}`;
-      }
-     
-      if(size){
-        url += `&size=${size}`;
-      }
+    if (size) {
+      url += `&size=${size}`;
+    }
 
-      if(energy){
-        url += `&energy_level=${energy}`;
-      }
+    if (energy) {
+      url += `&energy_level=${energy}`;
+    }
 
-      filterDogs(url);
+    filterDogs(url);
+  });
 
-  })
+  $("#clearBtn").on("click", () => {
+    $("#gender-select").val("");
+    $("#size-select").val("");
+    $("#energy-select").val("");
 
-  $('#clearBtn').on('click', () => {
-     $('#gender-select').val('');
-     $('#size-select').val('');
-     $('#energy-select').val('');
+    filterDogs("/api/dogs/filter");
+  });
 
-     filterDogs('/api/dogs/filter');
-  })
-
-  function filterDogs(url){
+  function filterDogs(url) {
     $.ajax({
-      type: 'GET',
-      url: url
+      type: "GET",
+      url: url,
     }).then((data) => {
-        $('.dog-container').empty();
+      $(".dog-container").empty();
 
-        data.forEach(dog => {
-          $('.dog-container').append(createDogCard(dog));
-        })
-    })
+      data.forEach((dog) => {
+        $(".dog-container").append(createDogCard(dog));
+      });
+    });
   }
 
-  function createDogCard(dog){
+  function createDogCard(dog) {
     const html = `<div class='column is-4'>
     <div class="card" style="margin: 10px;" id="card">
         <div class="card-image">
@@ -140,10 +136,18 @@ $(document).ready(function(){
         <div class="card-content is-centered" id="bottom-card">
             <div class="media">
                 <div class="media-content">
-                    <p class="title is-3 has-text-dark" id="dog-name">My name is ${dog.name}</p>
-                    <p class="subtitle is-6 has-text-dark">I'm  ${dog.age} years old</p>
-                    <p class="subtitle is-6 has-text-dark">I'm a ${dog.size} dog</p>
-                    <p class="subtitle is-6 has-text-dark">With a ${dog.energy_level} energy level</p>
+                    <p class="title is-3 has-text-dark" id="dog-name">My name is ${
+                      dog.name
+                    }</p>
+                    <p class="subtitle is-6 has-text-dark">I'm  ${
+                      dog.age
+                    } years old</p>
+                    <p class="subtitle is-6 has-text-dark">I'm a ${
+                      dog.size
+                    } dog</p>
+                    <p class="subtitle is-6 has-text-dark">With a ${
+                      dog.energy_level
+                    } energy level</p>
                     <p class="subtitle is-6 has-text-dark">${dog.breed}</p>
                     <p class="subtitle is-6 has-text-dark">${dog.gender}</p>
                 </div>
@@ -152,16 +156,20 @@ $(document).ready(function(){
             ${dog.bio}
                 <br />
             </div>
-            <p class="subtitle is-6 has-text-dark">I'm ${dog.available ? 'Available' : 'Unavailable'}!
+            <p class="subtitle is-6 has-text-dark">I'm ${
+              dog.available ? "Available" : "Unavailable"
+            }!
             </p>
         </div>
         <footer class="card-footer">
-            <button class="button card-footer-item dogBtn" id="dog-button" style="background-color: #FF8989" ${!dog.available ? 'disabled style="background: #c7c4c4;' : ''} data-name="${dog.name}" data-dogid="${dog.id}">Walk
+            <button class="button card-footer-item dogBtn" id="dog-button" style="background-color: #FF8989" ${
+              !dog.available ? 'disabled style="background: #c7c4c4;' : ""
+            } data-name="${dog.name}" data-dogid="${dog.id}">Walk
                 ${dog.name}!</button>
         </footer>
     </div>
 </div>`;
 
-return html;
+    return html;
   }
-})
+});

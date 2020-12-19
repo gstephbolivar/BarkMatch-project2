@@ -2,7 +2,7 @@
 #nav-text,
 .icon {
   color: #292f36;
-} 
+}
 
 /* BODY */
 
@@ -122,7 +122,7 @@ body {
   }
 
   .card-footer {
-      font-size: 15px;
+    font-size: 15px;
   }
 
   /* MODALS */
@@ -141,8 +141,6 @@ body {
     margin-right: -25px;
   }
 }
-
-
 
 /* CRAZY NAV BAR CODE */
 /* We don't need checkbox to be displayed in order for it to work */
@@ -179,7 +177,7 @@ body {
 /* For dropdown functionality */
 
 /* Same reason as for checkbox */
-.has-dropdown input[type=checkbox] {
+.has-dropdown input[type="checkbox"] {
   display: none;
 }
 /* Hide by default */
@@ -190,5 +188,5 @@ body {
 #dropdown1:checked ~ #dropdown-content1,
 #dropdown2:checked ~ #dropdown-content2,
 #dropdown3:checked ~ #dropdown-content3 {
-    display: block;
+  display: block;
 }

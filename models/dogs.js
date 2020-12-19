@@ -1,3 +1,4 @@
+// Dog table for db
 module.exports = function (sequelize, DataTypes) {
   const Dogs = sequelize.define("Dogs", {
     name: {
@@ -44,15 +45,15 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       defaultValue: "",
       // allowNull: false,
-    }
+    },
   });
   Dogs.associate = function (models) {
     Dogs.belongsTo(models.Volunteer, {
       foreignKey: {
-        name: 'VolunteerId',
+        name: "VolunteerId",
         allowNull: true,
-        defaultValue: null
-      }
+        defaultValue: null,
+      },
     });
   };
   return Dogs;

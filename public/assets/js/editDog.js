@@ -40,7 +40,6 @@ $(function () {
     const formData = new FormData(this);
 
     let query = `/api/dogs/${dogID}`;
-    console.log("here");
 
     $.ajax({
       type: "PUT",

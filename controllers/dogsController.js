@@ -18,6 +18,7 @@ router.get("/api/dogs", (req, res) => {
         })
 });
 
+// filter dogs
 router.get("/api/dogs/filter", (req, res) => {
 
     const query = {};

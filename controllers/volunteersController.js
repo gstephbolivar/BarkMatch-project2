@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const db = require('../models');
-const mailer = require('../config/mailer');
-
+const db = require("../models");
+const mailer = require("../config/mailer");
 
 //HTML Routes
 //User facing home page
@@ -72,7 +71,6 @@ router.post("/api/volunteers/signup", (req, res) => {
 
   db.Volunteer.create(volunteer)
     .then((result) => {
-      console.log(result);
       db.Dogs.update(
         { VolunteerId: result.dataValues.id, available: false },
         { where: { id: req.body.dogId } }
@@ -83,7 +81,7 @@ router.post("/api/volunteers/signup", (req, res) => {
               id: req.body.dogId,
             },
           }).then((dog) => {
-            mailer(dog, result.dataValues)
+            mailer(dog, result.dataValues);
             res
               .status(200)
               .json({ dog: dog, volunteerId: result.dataValues.id });
