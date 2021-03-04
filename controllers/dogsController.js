@@ -4,7 +4,6 @@ const db = require('../models');
 const fs = require('fs');
 const path = require('path');
 const cloudinary = require('cloudinary');
-const formidable = require('formidable');
 
 
 cloudinary.config({
