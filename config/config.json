@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     
-    "password": "Flounder91!",
+    "password": "NewPassword20",
     "database": "doggo_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
