@@ -3,9 +3,14 @@ const router = express.Router();
 const db = require('../models');
 const fs = require('fs');
 const path = require('path');
+const cloudinary = require('cloudinary');
 
 
-
+cloudinary.config({
+    cloud_name: 'barkmatch',
+    api_key: '292339498943787',
+    api_secret: 'xnckMtU9yzU_0EX_Se-B_Adfb10'
+})
 //API Routes
 //Get all the dogs
 router.get("/api/dogs", (req, res) => {
@@ -59,70 +64,60 @@ router.get("/api/dogs/:id", (req, res) => {
 });
 
 //Create a dog
-router.post("/api/dogs", (req, res) => {
+router.post("/api/dogs", (req, res, next) => {
 
     const dog = req.body;
+    const defaultImage = "/assets/images/img/dogph.png";
+    let imagePath;
+    let file;
 
-    //Create dog in the database
-    db.Dogs.create(dog)
+    if (req.files && req.files.img_path) {
+        file = req.files.img_path;
+        imagePath = `.\\tmp\\${file.name}`       
+    }
+    
+    if(file){
+        file.mv(imagePath, function (err) {
+            if (err) {
+                console.log(err);
+                return res.status(500).json(err);
+            }
+    
+            cloudinary.v2.uploader.upload(imagePath, {upload_preset: "ml_default"}, (err, result) => {
+                if(err){
+                    console.log(err);
+                    return res.status(500).json(err);
+                }
+                dog.img_path = result.url;
+                db.Dogs.create(dog)
+                .then(result => {
+                    res.json(result);
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).json(err);
+                })
+            }).then(() => {
+               fs.unlink(imagePath, () => {
+                   console.log("Removing " + imagePath);
+               });
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            })          
+        });
+    }else{
+        dog.img_path = defaultImage;
+        db.Dogs.create(dog)
         .then(result => {
-
-
-            //Check to see if a picture was included in the request and then add it to 
-            //the dogs image folder and update the image path in the database
-            if (req.files && req.files.img_path) {
-
-                const picture = req.files.img_path;
-                const dogImagePath = `/assets/images/dogs/Dog-${result.dataValues.id}.jpg`
-
-                picture.mv(`public` + dogImagePath, function (err) {
-                    if (err) {
-                        console.log(err);
-                        return res.status(500).json(err);
-                    }
-
-                    db.Dogs.update({ img_path: dogImagePath }, { where: { id: result.dataValues.id } })
-                        .then(result => {
-
-                            if (result[0] === 1) {
-                                res.status(200).end();
-                            }
-
-                            if (result[0] === 0) {
-                                res.status(404).end();
-                            }
-                        })
-                        .catch(err => {
-                            console.log(err);
-                            res.status(500).json(err);
-                        })
-                });
-            }
-            else {
-
-                db.Dogs.update({ img_path: "/assets/images/img/dogph.png" }, { where: { id: result.dataValues.id } })
-                    .then(result => {
-
-                        if (result[0] === 1) {
-                            res.status(200).end();
-                        }
-
-                        if (result[0] === 0) {
-                            res.status(404).end();
-                        }
-                    })
-                    .catch(err => {
-
-                        console.log(err);
-                        res.status(500).json(err);
-                    })
-            }
+            res.json(result);
         })
         .catch(err => {
-
             console.log(err);
             res.status(500).json(err);
         })
+    }
 });
 
 //Update a dog
@@ -131,44 +126,56 @@ router.put("/api/dogs/:id", (req, res) => {
     if (dog.flag){    
     dog.VolunteerId = null;
     };
-    db.Dogs.update(dog, { where: { id: req.params.id } })
-        .then(result => {
 
-            if (result[0] === 1) {
-                if (req.files && req.files.img_path) {
+    let imagePath;
+    let file;
 
-                    const picture = req.files.img_path;
-                    const imagePath = `/assets/images/dogs/Dog-${req.params.id}.jpg`;
+    if (req.files && req.files.img_path) {
+        file = req.files.img_path;
+        imagePath = `.\\tmp\\${file.name}`       
+    }
 
-                    picture.mv(`public` + imagePath, function (err) {
-                        if (err) {
-                            console.log(err);
-                            return res.status(500).json(err);
-                        }
-
-                        db.Dogs.update({img_path: imagePath}, {where: {id: req.params.id}})
-                        .then(() => {
-                            res.status(200).end();    
-                        })
-                        .catch(err => {
-                            console.log(err);
-                            res.status(500).end();
-                        })
-                       
-
-                    });
-                } else {
-                    res.status(200).end();
-                }
-            }else{
-                res.status(404).end();
+    if(file){
+        file.mv(imagePath, function (err) {
+            if (err) {
+                console.log(err);
+                return res.status(500).json(err);
             }
-
+    
+            cloudinary.v2.uploader.upload(imagePath, {upload_preset: "ml_default"}, (err, result) => {
+                if(err){
+                    console.log(err);
+                    return res.status(500).json(err);
+                }
+                dog.img_path = result.url;
+                db.Dogs.update(dog, { where: { id: req.params.id } })
+                .then(() => {
+                    res.status(200).end();
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).end();
+                })
+            }).then(() => {
+               fs.unlink(imagePath, () => {
+                   console.log("Removing " + imagePath);
+               });
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).end();
+            })          
+        });
+    }else{
+        db.Dogs.update(dog, { where: { id: req.params.id } })
+        .then(() => {
+            res.status(200).end();
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json(err)
+            res.status(500).end();
         })
+    }
 });
 
 //Delete a dog
